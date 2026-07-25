@@ -32,7 +32,7 @@ export default function ContactSheet() {
   };
 
   const field =
-    "w-full border-2 border-spruce bg-stock px-4 py-3 text-base text-spruce placeholder:text-spruce/55 focus:outline-none focus:ring-4 focus:ring-vermilion/45";
+    "w-full border-2 border-spruce bg-stock px-4 py-3 text-base text-spruce placeholder:text-spruce/70 focus:outline-none focus:ring-4 focus:ring-vermilion/45";
   const label = "caption block text-xs text-stock/80";
 
   return (
@@ -81,7 +81,13 @@ export default function ContactSheet() {
                 <label className={label} htmlFor="imie">
                   Imię i nazwisko
                 </label>
-                <input id="imie" name="imie" required className={`${field} mt-2`} />
+                <input
+                  id="imie"
+                  name="imie"
+                  autoComplete="name"
+                  required
+                  className={`${field} mt-2`}
+                />
               </div>
               <div>
                 <label className={label} htmlFor="telefon">
@@ -91,6 +97,8 @@ export default function ContactSheet() {
                   id="telefon"
                   name="telefon"
                   type="tel"
+                  autoComplete="tel"
+                  inputMode="tel"
                   required
                   className={`${field} mt-2`}
                 />
@@ -105,6 +113,7 @@ export default function ContactSheet() {
                 <input
                   id="miejscowosc"
                   name="miejscowosc"
+                  autoComplete="address-level2"
                   required
                   className={`${field} mt-2`}
                 />
