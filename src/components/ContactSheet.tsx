@@ -12,7 +12,7 @@ const services = [
 ];
 
 export default function ContactSheet() {
-  const [sent, setSent] = useState(false);
+  const [prepared, setPrepared] = useState(false);
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,7 +28,7 @@ export default function ContactSheet() {
     window.location.href = `mailto:biuro@klimax.co.pl?subject=${encodeURIComponent(
       `Zapytanie: ${data.get("zakres")}`
     )}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setPrepared(true);
   };
 
   const field =
@@ -38,7 +38,7 @@ export default function ContactSheet() {
   return (
     <section id="kontakt" className="relative bg-spruce grain">
       <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-10 sm:py-28">
-        <p className="caption text-xs text-stock/70">Arkusz 07</p>
+        <p className="caption text-xs text-stock/70">Arkusz 06</p>
         <h2 className="display mt-4 text-stock text-[clamp(2.6rem,9vw,6.5rem)]">
           Napisz albo{" "}
           <br />
@@ -99,6 +99,9 @@ export default function ContactSheet() {
                   type="tel"
                   autoComplete="tel"
                   inputMode="tel"
+                  minLength={7}
+                  pattern="(?=(?:.*[0-9]){7})[0-9+ ]+"
+                  title="Wpisz co najmniej 7 cyfr; możesz użyć spacji i plusa."
                   required
                   className={`${field} mt-2`}
                 />
@@ -148,12 +151,12 @@ export default function ContactSheet() {
               type="submit"
               className="ink-btn w-full bg-vermilion px-8 py-4 text-xl text-stock hover:bg-stock hover:text-vermilion sm:w-auto"
             >
-              Wyślij zapytanie
+              Przygotuj e-mail
             </button>
 
             <p aria-live="polite" className="text-sm leading-relaxed text-stock/70">
-              {sent
-                ? "Otworzyliśmy Twój program pocztowy z gotowym zapytaniem. Jeśli nic się nie stało, zadzwoń albo napisz na biuro@klimax.co.pl."
+              {prepared
+                ? "Jeśli otworzył się program pocztowy, wiadomość jest gotowa — wyślij ją stamtąd. Jeśli nic się nie stało, zadzwoń albo napisz na biuro@klimax.co.pl."
                 : "Formularz otwiera Twój program pocztowy z gotową treścią zapytania."}
             </p>
           </form>

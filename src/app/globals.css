@@ -6,7 +6,6 @@
   --color-slate: #2e5567;
   --color-vermilion: #d8452a;
   --color-ochre: #c0803a;
-  --color-ochre-light: #d9a05a;
 
   --font-display: var(--font-big-shoulders), ui-sans-serif, sans-serif;
   --font-sans: var(--font-public-sans), ui-sans-serif, sans-serif;
@@ -105,6 +104,10 @@ body {
 .ink-btn[data-folded="true"]::after {
   border-width: 0 0 22px 22px;
   border-color: transparent transparent color-mix(in srgb, currentColor 42%, transparent) transparent;
+}
+
+.ink-btn.bg-vermilion:focus-visible {
+  outline-color: var(--color-stock);
 }
 
 .plane {

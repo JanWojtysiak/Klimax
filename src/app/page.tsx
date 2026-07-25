@@ -23,7 +23,7 @@ const bands = [
   },
   {
     range: "20–30 km",
-    tone: "bg-ochre-light text-spruce",
+    tone: "bg-ochre text-spruce",
     towns: ["Bolków", "Boguszów-Gorce", "Jedlina-Zdrój", "Marcinowice", "Kamienna Góra"],
   },
 ];
@@ -67,7 +67,7 @@ export default function Home() {
                 <li key={brand} className="flex items-baseline gap-x-4 sm:gap-x-6">
                   <span>{brand}</span>
                   {index < brands.length - 1 ? (
-                    <span aria-hidden="true" className="text-vermilion">
+                    <span aria-hidden="true" className="text-stock/35">
                       ◆
                     </span>
                   ) : null}
@@ -87,16 +87,18 @@ export default function Home() {
                   cy="100"
                   r="94"
                   fill="none"
-                  stroke="#d8452a"
+                  stroke="#efe9da"
                   strokeWidth="4"
+                  strokeOpacity="0.85"
                 />
                 <circle
                   cx="100"
                   cy="100"
                   r="80"
                   fill="none"
-                  stroke="#d8452a"
+                  stroke="#efe9da"
                   strokeWidth="2"
+                  strokeOpacity="0.5"
                 />
                 <text
                   x="100"
@@ -114,7 +116,7 @@ export default function Home() {
                   x="100"
                   y="118"
                   textAnchor="middle"
-                  fill="#d8452a"
+                  fill="#efe9da"
                   fontSize="34"
                   fontWeight="800"
                   fontFamily="var(--font-display)"
@@ -122,7 +124,12 @@ export default function Home() {
                 >
                   1·2·3
                 </text>
-                <path d="M46 132 H154" stroke="#d8452a" strokeWidth="2" />
+                <path
+                  d="M46 132 H154"
+                  stroke="#efe9da"
+                  strokeWidth="2"
+                  strokeOpacity="0.5"
+                />
                 <text
                   x="100"
                   y="156"
@@ -163,7 +170,7 @@ export default function Home() {
           <ul className="relative mt-12 border-t-2 border-spruce/25">
             {services.map(([name, note]) => (
               <li key={name} className="border-b-2 border-spruce/25">
-                <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-7 transition-colors duration-150 hover:bg-spruce hover:text-stock sm:flex-row sm:items-baseline sm:justify-between sm:gap-8 sm:px-10">
+                <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-7 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8 sm:px-10">
                   <h3 className="display text-[clamp(1.9rem,5.5vw,3.4rem)]">
                     {name}
                   </h3>
@@ -187,7 +194,7 @@ export default function Home() {
           <div className="relative mx-auto flex min-h-[85vh] max-w-6xl flex-col justify-center px-5 py-20 sm:px-10">
             <p className="caption text-xs text-stock/70">Arkusz 04</p>
             <p
-              className="display mt-2 leading-[0.78] text-vermilion"
+              className="display mt-2 leading-[0.78] text-stock"
               style={{ fontSize: "clamp(9rem, 40vw, 26rem)" }}
             >
               25
@@ -238,39 +245,6 @@ export default function Home() {
               Pasma odległości są orientacyjne. Jeśli Twojej miejscowości nie ma
               na liście, zadzwoń — najczęściej i tak dojedziemy.
             </p>
-          </div>
-        </section>
-
-        <section className="relative bg-stock text-spruce grain">
-          <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-10 sm:py-28">
-            <p className="caption text-xs text-spruce/70">Arkusz 06</p>
-            <h2 className="display mt-4 text-[clamp(2.6rem,9vw,6.5rem)]">
-              Ekipa
-            </h2>
-
-            <div className="mt-10 border-2 border-dashed border-spruce/45 bg-slate/10">
-              <div className="flex aspect-[16/7] flex-col items-center justify-center gap-4 px-6 text-center">
-                <svg viewBox="0 0 60 60" className="h-12 w-12" aria-hidden="true">
-                  <circle
-                    cx="30"
-                    cy="30"
-                    r="26"
-                    fill="none"
-                    stroke="#16332b"
-                    strokeWidth="2"
-                  />
-                  <path d="M30 0 V60 M0 30 H60" stroke="#16332b" strokeWidth="2" />
-                </svg>
-                <p className="caption text-xs text-spruce/75 sm:text-sm">
-                  Miejsce na zdjęcie Roberta i ekipy
-                </p>
-                <p className="max-w-md text-sm leading-relaxed text-spruce/70">
-                  Materiał do dostarczenia. Do tego czasu zostawiamy pustą
-                  ramkę — nie wstawiamy zdjęć z banku, które nie pokazują tej
-                  firmy.
-                </p>
-              </div>
-            </div>
           </div>
         </section>
 
