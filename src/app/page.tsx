@@ -53,97 +53,9 @@ export default function Home() {
       <main className="flex-1">
         <SheetHero />
 
-        <section className="relative bg-stock text-spruce grain">
-          <div className="relative mx-auto max-w-6xl px-5 pt-20 sm:px-10 sm:pt-28">
-            <p className="caption text-xs text-spruce/70">Arkusz 02</p>
-            <h2 className="display mt-4 text-[clamp(2.6rem,9vw,6.5rem)]">
-              Co robimy
-            </h2>
-          </div>
-          <ul className="relative mt-12 border-t-2 border-spruce/25">
-            {services.map(([name, note]) => (
-              <li key={name} className="border-b-2 border-spruce/25">
-                <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-7 transition-colors duration-150 hover:bg-spruce hover:text-stock sm:flex-row sm:items-baseline sm:justify-between sm:gap-8 sm:px-10">
-                  <h3 className="display text-[clamp(1.9rem,5.5vw,3.4rem)]">
-                    {name}
-                  </h3>
-                  <p className="caption shrink-0 text-xs opacity-80 sm:text-sm">
-                    {note}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="mx-auto max-w-6xl px-5 py-14 sm:px-10">
-            <p className="max-w-2xl text-lg leading-relaxed text-spruce/80">
-              Pompa ciepła to dziś nasza główna robota, ale dom to jedna
-              instalacja — elektryka, woda i wentylacja muszą do siebie pasować.
-              Robimy je pod jednym adresem.
-            </p>
-          </div>
-        </section>
-
-        <section className="relative bg-spruce grain">
-          <div className="relative mx-auto flex min-h-[85vh] max-w-6xl flex-col justify-center px-5 py-20 sm:px-10">
-            <p className="caption text-xs text-stock/70">Arkusz 03</p>
-            <p
-              className="display mt-2 leading-[0.78] text-vermilion"
-              style={{ fontSize: "clamp(9rem, 40vw, 26rem)" }}
-            >
-              25
-            </p>
-            <div className="rule-diamond mt-6 text-stock/45">
-              <span className="caption shrink-0 text-xs text-stock sm:text-sm">
-                lat doświadczenia
-              </span>
-            </div>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-stock/85 sm:text-xl">
-              Ćwierć wieku przy różnorodnych instalacjach w firmach i u klientów
-              prywatnych. Przez ten czas zmieniły się kotły, przepisy i urządzenia
-              — a jakość została ta sama.
-            </p>
-          </div>
-        </section>
-
-        <section className="relative bg-stock text-spruce grain">
-          <div className="relative mx-auto max-w-6xl px-5 pt-20 sm:px-10 sm:pt-28">
-            <p className="caption text-xs text-spruce/70">Arkusz 04</p>
-            <h2 className="display mt-4 text-[clamp(2.6rem,9vw,6.5rem)]">
-              Jak daleko{" "}
-              <br />
-              dojeżdżamy
-            </h2>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-spruce/80">
-              Pracujemy w promieniu około 30 kilometrów od Świebodzic.
-            </p>
-          </div>
-
-          <div className="relative mt-12">
-            {bands.map((band) => (
-              <div key={band.range} className={`${band.tone}`}>
-                <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 sm:flex-row sm:items-center sm:gap-10 sm:px-10">
-                  <p className="display shrink-0 text-[clamp(1.6rem,4.5vw,2.6rem)]">
-                    {band.range}
-                  </p>
-                  <p className="caption text-xs leading-relaxed sm:text-sm">
-                    {band.towns.join(" · ")}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mx-auto max-w-6xl px-5 py-10 sm:px-10">
-            <p className="text-sm leading-relaxed text-spruce/70">
-              Pasma odległości są orientacyjne. Jeśli Twojej miejscowości nie ma
-              na liście, zadzwoń — najczęściej i tak dojedziemy.
-            </p>
-          </div>
-        </section>
-
         <section className="relative bg-spruce grain">
           <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-10 sm:py-28">
-            <p className="caption text-xs text-stock/70">Arkusz 05</p>
+            <p className="caption text-xs text-stock/70">Arkusz 02</p>
             <h2 className="display mt-4 text-stock text-[clamp(2.6rem,9vw,6.5rem)]">
               Certyfikowany{" "}
               <br />
@@ -238,6 +150,94 @@ export default function Home() {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="relative bg-stock text-spruce grain">
+          <div className="relative mx-auto max-w-6xl px-5 pt-20 sm:px-10 sm:pt-28">
+            <p className="caption text-xs text-spruce/70">Arkusz 03</p>
+            <h2 className="display mt-4 text-[clamp(2.6rem,9vw,6.5rem)]">
+              Co robimy
+            </h2>
+          </div>
+          <ul className="relative mt-12 border-t-2 border-spruce/25">
+            {services.map(([name, note]) => (
+              <li key={name} className="border-b-2 border-spruce/25">
+                <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-7 transition-colors duration-150 hover:bg-spruce hover:text-stock sm:flex-row sm:items-baseline sm:justify-between sm:gap-8 sm:px-10">
+                  <h3 className="display text-[clamp(1.9rem,5.5vw,3.4rem)]">
+                    {name}
+                  </h3>
+                  <p className="caption shrink-0 text-xs opacity-80 sm:text-sm">
+                    {note}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="mx-auto max-w-6xl px-5 py-14 sm:px-10">
+            <p className="max-w-2xl text-lg leading-relaxed text-spruce/80">
+              Pompa ciepła to dziś nasza główna robota, ale dom to jedna
+              instalacja — elektryka, woda i wentylacja muszą do siebie pasować.
+              Robimy je pod jednym adresem.
+            </p>
+          </div>
+        </section>
+
+        <section className="relative bg-spruce grain">
+          <div className="relative mx-auto flex min-h-[85vh] max-w-6xl flex-col justify-center px-5 py-20 sm:px-10">
+            <p className="caption text-xs text-stock/70">Arkusz 04</p>
+            <p
+              className="display mt-2 leading-[0.78] text-vermilion"
+              style={{ fontSize: "clamp(9rem, 40vw, 26rem)" }}
+            >
+              25
+            </p>
+            <div className="rule-diamond mt-6 text-stock/45">
+              <span className="caption shrink-0 text-xs text-stock sm:text-sm">
+                lat doświadczenia
+              </span>
+            </div>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-stock/85 sm:text-xl">
+              Ćwierć wieku przy różnorodnych instalacjach w firmach i u klientów
+              prywatnych. Przez ten czas zmieniły się kotły, przepisy i urządzenia
+              — a jakość została ta sama.
+            </p>
+          </div>
+        </section>
+
+        <section className="relative bg-stock text-spruce grain">
+          <div className="relative mx-auto max-w-6xl px-5 pt-20 sm:px-10 sm:pt-28">
+            <p className="caption text-xs text-spruce/70">Arkusz 05</p>
+            <h2 className="display mt-4 text-[clamp(2.6rem,9vw,6.5rem)]">
+              Jak daleko{" "}
+              <br />
+              dojeżdżamy
+            </h2>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-spruce/80">
+              Pracujemy w promieniu około 30 kilometrów od Świebodzic.
+            </p>
+          </div>
+
+          <div className="relative mt-12">
+            {bands.map((band) => (
+              <div key={band.range} className={`${band.tone}`}>
+                <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 sm:flex-row sm:items-center sm:gap-10 sm:px-10">
+                  <p className="display shrink-0 text-[clamp(1.6rem,4.5vw,2.6rem)]">
+                    {band.range}
+                  </p>
+                  <p className="caption text-xs leading-relaxed sm:text-sm">
+                    {band.towns.join(" · ")}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mx-auto max-w-6xl px-5 py-10 sm:px-10">
+            <p className="text-sm leading-relaxed text-spruce/70">
+              Pasma odległości są orientacyjne. Jeśli Twojej miejscowości nie ma
+              na liście, zadzwoń — najczęściej i tak dojedziemy.
+            </p>
           </div>
         </section>
 

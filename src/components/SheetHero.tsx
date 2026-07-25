@@ -177,11 +177,10 @@ export default function SheetHero() {
         <div className="relative flex h-full flex-col justify-between">
           <div className="flex items-center justify-between px-5 py-5 text-[0.68rem] text-stock caption sm:px-10 sm:text-xs">
             <span>Klimax · Robert Wojtysiak</span>
-            <span className="hidden sm:inline">25 lat doświadczenia</span>
             <span>Arkusz 01</span>
           </div>
 
-          <div className="pointer-events-none absolute left-5 top-16 z-10 w-52 bg-spruce px-3 py-3 text-stock sm:left-auto sm:right-10 sm:w-64">
+          <div className="pointer-events-none absolute left-5 top-16 z-10 w-52 bg-spruce px-3 py-3 text-stock [@media(max-height:640px)]:hidden sm:left-auto sm:right-10 sm:w-64">
             <div
               className="flex items-center justify-between text-[0.62rem] caption sm:text-[0.68rem]"
               aria-label={`Aktualny sezon: ${summer ? "lato" : "zima"}`}
@@ -221,16 +220,23 @@ export default function SheetHero() {
 
           <div className="bg-spruce">
             <div className="flex flex-col gap-4 px-5 pb-24 pt-5 sm:px-10 md:flex-row md:items-center md:justify-between md:py-5">
-              <p className="caption text-xs text-stock sm:text-sm">
-                Świebodzice i 30 km wokół
-              </p>
+              <div className="flex flex-col gap-2">
+                <p className="caption text-xs text-stock sm:text-sm">
+                  25 lat · SEP 1/2/3 · F-Gaz
+                </p>
+                <p className="caption text-xs text-stock/70 sm:text-sm">
+                  Świebodzice i 30 km wokół
+                </p>
+              </div>
               <div className="flex flex-wrap items-center gap-3">
-                <a
-                  href="tel:+48601573887"
-                  className="ink-btn bg-vermilion px-6 py-3 text-lg text-stock hover:bg-stock hover:text-vermilion sm:text-xl"
-                >
-                  Zadzwoń +48 601 573 887
-                </a>
+                <div className="hidden md:block">
+                  <a
+                    href="tel:+48601573887"
+                    className="ink-btn bg-vermilion px-6 py-3 text-lg text-stock hover:bg-stock hover:text-vermilion sm:text-xl"
+                  >
+                    Zadzwoń +48 601 573 887
+                  </a>
+                </div>
                 <a
                   href="#kontakt"
                   className="ink-btn border-2 border-stock px-6 py-3 text-lg text-stock hover:bg-stock hover:text-spruce sm:text-xl"
