@@ -26,13 +26,11 @@ const spruceRow = (
 
 export default function SheetHero() {
   const sectionRef = useRef<HTMLElement>(null);
-  const sceneRef = useRef<HTMLDivElement>(null);
   const [summer, setSummer] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
-    const scene = sceneRef.current;
-    if (!section || !scene) return;
+    if (!section) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let frame = 0;
@@ -43,7 +41,8 @@ export default function SheetHero() {
       const total = rect.height - window.innerHeight;
       const progress = total > 0 ? Math.min(Math.max(-rect.top / total, 0), 1) : 0;
       setSummer(progress > 0.45);
-      if (!reduced) scene.style.setProperty("--sy", String(progress));
+      section.style.setProperty("--progress", String(progress));
+      section.style.setProperty("--sy", reduced ? "0" : String(progress));
     };
 
     const onScroll = () => {
@@ -61,13 +60,13 @@ export default function SheetHero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative h-[220vh]">
+    <section
+      ref={sectionRef}
+      className="relative h-[160vh]"
+      style={{ ["--progress" as string]: 0, ["--sy" as string]: 0 }}
+    >
       <div className="sticky top-0 h-screen overflow-hidden">
-        <div
-          ref={sceneRef}
-          className={`absolute inset-0 grain ${summer ? "summer" : ""}`}
-          style={{ ["--sy" as string]: 0 }}
-        >
+        <div className={`absolute inset-0 grain ${summer ? "summer" : ""}`}>
           <style>{`
             .plane-sky { fill: #2e5567 }
             .plane-cloud { fill: #efe9da }
@@ -180,6 +179,27 @@ export default function SheetHero() {
             <span>Klimax · Robert Wojtysiak</span>
             <span className="hidden sm:inline">25 lat doświadczenia</span>
             <span>Arkusz 01</span>
+          </div>
+
+          <div className="pointer-events-none absolute left-5 top-16 z-10 w-52 bg-spruce px-3 py-3 text-stock sm:left-auto sm:right-10 sm:w-64">
+            <div
+              className="flex items-center justify-between text-[0.62rem] caption sm:text-[0.68rem]"
+              aria-label={`Aktualny sezon: ${summer ? "lato" : "zima"}`}
+              aria-live="polite"
+            >
+              <span className={summer ? "text-stock/70" : "text-stock"}>Zima</span>
+              <span aria-hidden="true">→</span>
+              <span className={summer ? "text-stock" : "text-stock/70"}>Lato</span>
+            </div>
+            <div className="mt-2 h-1 bg-stock/25" aria-hidden="true">
+              <span
+                className="block h-full origin-left bg-stock"
+                style={{ transform: "scaleX(var(--progress))" }}
+              />
+            </div>
+            <p className="mt-2 text-[0.66rem] leading-tight text-stock/75">
+              Przewiń, aby zmienić sezon
+            </p>
           </div>
 
           <div className="px-5 pb-6 sm:px-10">
