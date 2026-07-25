@@ -8,58 +8,58 @@ web
 
 ## Users
 
-Primary: individual customers and single-family homeowners in the area around Świebodzice (~30 km radius) who need electrical, plumbing, heat pump, air conditioning, recuperation, or underfloor heating installation/service work, and are deciding whether to contact Klimax.
+Główna grupa: klienci indywidualni i właściciele domów jednorodzinnych w okolicy Świebodzic (promień ok. 30 km), którzy potrzebują instalacji elektrycznych, wodno-kanalizacyjnych, pomp ciepła, klimatyzacji, rekuperacji lub ogrzewania podłogowego i zastanawiają się, czy skontaktować się z Klimax.
 
 ## Product Purpose
 
-A standard business/company website for Klimax (owner: Robert Wojtysiak). It exists to be found via SEO, present the brand, build trust, and convert visitors into phone calls or contact-form inquiries. Success = qualified local leads contacting Klimax.
+Standardowa strona firmowa Klimax (właściciel: Robert Wojtysiak). Ma być widoczna w wyszukiwarce (SEO), prezentować markę, budować zaufanie i skłaniać odwiedzających do kontaktu telefonicznego lub przez formularz. Sukces = wartościowe lokalne zapytania kontaktujące się z Klimax.
 
 ## Positioning
 
-25 years of hands-on experience combined with certified multi-brand installer status (Rotenso, Panasonic, Atlantic, Gree, Kaisai, Midea, Fuji, Daikin, Vaillant) plus formal licenses (SEP groups 1, 2, 3; F-Gaz) — a credentialed, trustworthy local specialist rather than a generic tradesperson. Heat pumps are the lead service to feature in the hero.
+25 lat doświadczenia w połączeniu ze statusem certyfikowanego instalatora wielu marek (Rotenso, Panasonic, Atlantic, Gree, Kaisai, Midea, Fuji, Daikin, Vaillant) oraz formalnymi uprawnieniami (SEP grupa 1, 2, 3; F-Gaz) — wiarygodny, potwierdzony uprawnieniami lokalny specjalista, a nie przypadkowy fachowiec. Pompy ciepła to usługa wiodąca, eksponowana w hero.
 
 ## Operating Context
 
-- Service area: roughly 30 km around Świebodzice, Poland.
-- Contact channels: phone (+48 601 573 887) and email (biuro@klimax.co.pl).
-- Primary conversion actions: phone call or inquiry/contact form submission.
+- Obszar działania: ok. 30 km wokół Świebodzic.
+- Kanały kontaktu: telefon (+48 601 573 887) oraz e-mail (biuro@klimax.co.pl).
+- Główne akcje konwersji: telefon lub wysłanie zapytania/formularza kontaktowego.
 
 ## Capabilities and Constraints
 
-Services offered:
-- electrical installations
-- plumbing/sewage installations
-- heat pumps
-- air conditioning
-- recuperation (ventilation with heat recovery)
-- underfloor heating installations
+Oferowane usługi:
+- instalacje elektryczne
+- instalacje wodno-kanalizacyjne
+- pompy ciepła
+- klimatyzacja
+- rekuperacja
+- instalacje podłogowe
 
-Credentials to display as trust signals:
-- certified installer for: Rotenso, Panasonic, Atlantic, Gree, Kaisai, Midea, Fuji, Daikin, Vaillant
-- company installation and service certificates for the above brands
-- SEP certifications, groups 1, 2, and 3
-- F-Gaz authorization
+Poświadczenia budujące zaufanie:
+- zweryfikowany instalator marek: Rotenso, Panasonic, Atlantic, Gree, Kaisai, Midea, Fuji, Daikin, Vaillant
+- firmowe certyfikaty montażowe i serwisowe dla wymienionych marek
+- certyfikaty SEP grupa 1, 2 i 3
+- uprawnienia F-Gaz
 
-Open/undecided: exact page structure and content beyond the above facts is not yet defined.
+Otwarte/nieustalone: dokładna struktura i treść stron poza powyższymi faktami nie jest jeszcze zdefiniowana.
 
 ## Brand Commitments
 
-- Company/owner name: Klimax — Robert Wojtysiak.
-- Photo of Robert and the team: to be supplied later (not yet available).
-- Logo: to be supplied later (not yet available).
+- Nazwa firmy/właściciel: Klimax — Robert Wojtysiak.
+- Zdjęcie Roberta i ekipy: zostanie dostarczone później (jeszcze niedostępne).
+- Logo: zostanie dostarczone później (jeszcze niedostępne).
 
 ## Evidence on Hand
 
-No testimonials, case studies, press, or project photos are available yet. Do not fabricate customer quotes, project photos, before/after imagery, or review counts — placeholder/generic imagery only until real assets arrive.
+Brak na razie opinii klientów, case studies, materiałów prasowych czy zdjęć realizacji. Nie wymyślać cytatów klientów, zdjęć realizacji, zdjęć przed/po ani liczby opinii — do czasu dostarczenia prawdziwych materiałów używać wyłącznie grafik zastępczych/generycznych.
 
 ## Product Principles
 
-1. Trust and credentials lead: certifications, licenses, and 25 years of experience are the primary persuasion tool, not price or promotions.
-2. Heat pumps are the flagship service and should anchor the hero/first impression.
-3. Every page should make phone/email contact effortless to find and act on.
-4. Content should support local SEO (service area, service list, brand names) without becoming keyword-stuffed.
-5. Keep claims strictly factual — no invented reviews, project counts, or awards.
+1. Zaufanie i uprawnienia na pierwszym planie: certyfikaty, licencje i 25 lat doświadczenia to główny argument, nie cena czy promocje.
+2. Pompy ciepła to usługa flagowa i powinny być punktem wyjścia dla hero/pierwszego wrażenia.
+3. Na każdej stronie kontakt telefoniczny/mailowy ma być łatwo dostępny i widoczny.
+4. Treści mają wspierać lokalne SEO (obszar działania, lista usług, nazwy marek) bez przesadnego upychania słów kluczowych.
+5. Twierdzenia mają być ściśle faktyczne — bez wymyślonych opinii, liczby realizacji czy nagród.
 
 ## Accessibility & Inclusion
 
-No product-specific requirement established yet.
+Brak na razie wymagań specyficznych dla produktu.
