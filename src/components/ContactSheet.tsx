@@ -40,7 +40,7 @@ export default function ContactSheet() {
       <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-10 sm:py-28">
         <p className="caption text-xs text-stock/70">Arkusz 07</p>
         <h2 className="display mt-4 text-stock text-[clamp(2.6rem,9vw,6.5rem)]">
-          Napisz albo
+          Napisz albo{" "}
           <br />
           zadzwoń
         </h2>
@@ -48,8 +48,8 @@ export default function ContactSheet() {
         <div className="mt-12 grid gap-12 md:grid-cols-[1fr_1.15fr] md:gap-16">
           <div>
             <p className="text-lg leading-relaxed text-stock/85">
-              Najszybciej załatwimy sprawę przez telefon — Robert odbiera osobiście
-              i powie, czy Twój dom nadaje się pod pompę ciepła.
+              Najszybciej załatwimy sprawę przez telefon — odbieramy osobiście
+              i pomożemy ci z każdym pytaniem.
             </p>
 
             <div className="mt-8 space-y-4">

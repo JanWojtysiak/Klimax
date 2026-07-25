@@ -184,7 +184,7 @@ export default function SheetHero() {
 
           <div className="px-5 pb-6 sm:px-10">
             <h1 className="display text-stock text-[clamp(3.4rem,15vw,11rem)]">
-              Pompy
+              Pompy{" "}
               <br />
               ciepła
               <span className="sr-only">
@@ -200,7 +200,7 @@ export default function SheetHero() {
           </div>
 
           <div className="bg-spruce">
-            <div className="flex flex-col gap-4 px-5 py-5 sm:px-10 md:flex-row md:items-center md:justify-between">
+            <div className="flex flex-col gap-4 px-5 pb-24 pt-5 sm:px-10 md:flex-row md:items-center md:justify-between md:py-5">
               <p className="caption text-xs text-stock sm:text-sm">
                 Świebodzice i 30 km wokół
               </p>

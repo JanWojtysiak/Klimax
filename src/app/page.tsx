@@ -98,9 +98,9 @@ export default function Home() {
               </span>
             </div>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-stock/85 sm:text-xl">
-              Ćwierć wieku przy instalacjach w domach jednorodzinnych. Przez ten
-              czas zmieniły się kotły, przepisy i urządzenia — a firma została ta
-              sama: Robert Wojtysiak i jego ekipa.
+              Ćwierć wieku przy różnorodnych instalacjach w firmach i u klientów
+              prywatnych. Przez ten czas zmieniły się kotły, przepisy i urządzenia
+              — a jakość została ta sama.
             </p>
           </div>
         </section>
@@ -109,13 +109,12 @@ export default function Home() {
           <div className="relative mx-auto max-w-6xl px-5 pt-20 sm:px-10 sm:pt-28">
             <p className="caption text-xs text-spruce/70">Arkusz 04</p>
             <h2 className="display mt-4 text-[clamp(2.6rem,9vw,6.5rem)]">
-              Jak daleko
+              Jak daleko{" "}
               <br />
               dojeżdżamy
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-spruce/80">
-              Pracujemy w promieniu około 30 kilometrów od Świebodzic. Im bliżej,
-              tym szybciej dojedziemy na serwis.
+              Pracujemy w promieniu około 30 kilometrów od Świebodzic.
             </p>
           </div>
 
@@ -146,7 +145,7 @@ export default function Home() {
           <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-10 sm:py-28">
             <p className="caption text-xs text-stock/70">Arkusz 05</p>
             <h2 className="display mt-4 text-stock text-[clamp(2.6rem,9vw,6.5rem)]">
-              Certyfikowany
+              Certyfikowany{" "}
               <br />
               instalator
             </h2>
@@ -228,7 +227,7 @@ export default function Home() {
 
               <div className="max-w-xl">
                 <p className="text-lg leading-relaxed text-stock/85">
-                  Klimax ma firmowe certyfikaty montażowe i serwisowe wymienionych
+                  Posiadamy certyfikaty montażowe i serwisowe wymienionych
                   producentów, uprawnienia SEP grupy 1, 2 i 3 oraz certyfikat
                   F-Gaz.
                 </p>
