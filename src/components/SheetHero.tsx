@@ -187,12 +187,12 @@ export default function SheetHero() {
                 alt=""
                 width={1039}
                 height={341}
-                sizes="(min-width: 640px) 11rem, (min-width: 360px) 10rem, 9rem"
+                sizes="(min-width: 640px) 11rem, (min-width: 360px) 7rem, 6rem"
                 loading="eager"
-                className="h-auto w-36 max-w-full shrink-0 min-[360px]:w-40 sm:w-44"
+                className="h-auto w-24 max-w-full shrink-0 min-[360px]:w-28 sm:w-44"
               />
               <span
-                className="display min-w-0 text-center text-sm leading-none min-[360px]:text-[0.9375rem] sm:text-lg"
+                className="display min-w-0 text-center text-[0.6rem] leading-none min-[360px]:text-[0.7rem] sm:text-lg"
                 style={{
                   color: summer ? "var(--color-spruce)" : "var(--color-stock)",
                   fontWeight: 900,
@@ -209,7 +209,7 @@ export default function SheetHero() {
             </span>
           </div>
 
-          <div className="pointer-events-none absolute left-4 top-24 z-10 w-52 bg-spruce px-3 py-3 text-stock [@media(max-height:640px)]:hidden sm:left-auto sm:right-8 sm:top-16 sm:w-64">
+          <div className="pointer-events-none absolute z-10 hidden bg-spruce px-3 py-3 text-stock [@media(max-height:640px)]:hidden sm:right-8 sm:top-16 sm:block sm:w-64">
             <div
               className="flex items-center justify-between text-[0.62rem] caption sm:text-[0.68rem]"
               aria-label={`Aktualny sezon: ${summer ? "lato" : "zima"}`}
