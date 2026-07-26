@@ -176,7 +176,7 @@ export default function SheetHero() {
         </div>
 
         <div className="relative flex h-full flex-col justify-between">
-          <div className="flex items-start justify-between gap-3 px-5 py-5 text-stock sm:gap-4 sm:px-10">
+          <div className="flex items-start justify-between gap-3 px-4 py-4 text-stock sm:gap-4 sm:px-8 sm:py-5">
             <div className="flex min-w-0 flex-col items-center">
               <Image
                 src={
@@ -187,12 +187,12 @@ export default function SheetHero() {
                 alt=""
                 width={1039}
                 height={341}
-                sizes="(min-width: 640px) 17rem, 13rem"
+                sizes="(min-width: 640px) 11rem, (min-width: 360px) 10rem, 9rem"
                 loading="eager"
-                className="h-auto w-[clamp(13rem,20vw,17rem)] max-w-full shrink-0"
+                className="h-auto w-36 max-w-full shrink-0 min-[360px]:w-40 sm:w-44"
               />
               <span
-                className="display min-w-0 text-center text-[clamp(1.25rem,3.2vw,2rem)] leading-none"
+                className="display min-w-0 text-center text-sm leading-none min-[360px]:text-[0.9375rem] sm:text-lg"
                 style={{
                   color: summer ? "var(--color-spruce)" : "var(--color-stock)",
                   fontWeight: 900,
@@ -209,7 +209,7 @@ export default function SheetHero() {
             </span>
           </div>
 
-          <div className="pointer-events-none absolute left-5 top-32 z-10 w-52 bg-spruce px-3 py-3 text-stock [@media(max-height:640px)]:hidden sm:left-auto sm:right-10 sm:top-16 sm:w-64">
+          <div className="pointer-events-none absolute left-4 top-24 z-10 w-52 bg-spruce px-3 py-3 text-stock [@media(max-height:640px)]:hidden sm:left-auto sm:right-8 sm:top-16 sm:w-64">
             <div
               className="flex items-center justify-between text-[0.62rem] caption sm:text-[0.68rem]"
               aria-label={`Aktualny sezon: ${summer ? "lato" : "zima"}`}
