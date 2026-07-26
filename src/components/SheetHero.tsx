@@ -175,9 +175,20 @@ export default function SheetHero() {
         </div>
 
         <div className="relative flex h-full flex-col justify-between">
-          <div className="flex items-center justify-between px-5 py-5 text-[0.68rem] text-stock caption sm:px-10 sm:text-xs">
-            <span>Klimax · Robert Wojtysiak</span>
-            <span>Arkusz 01</span>
+          <div className="flex items-start justify-between gap-4 px-5 py-5 text-stock sm:px-10">
+            <span
+              className="display text-[clamp(1.35rem,3.2vw,2rem)] leading-none"
+              style={{
+                color: summer ? "var(--color-spruce)" : "var(--color-stock)",
+                fontWeight: 900,
+                WebkitTextStroke: `1px ${summer ? "var(--color-stock)" : "var(--color-spruce)"}`,
+                paintOrder: "stroke fill",
+                fontVariationSettings: '"opsz" 72',
+              }}
+            >
+              Klimax · Robert Wojtysiak
+            </span>
+            <span className="caption pt-1 text-[0.68rem] sm:text-xs">Arkusz 01</span>
           </div>
 
           <div className="pointer-events-none absolute left-5 top-16 z-10 w-52 bg-spruce px-3 py-3 text-stock [@media(max-height:640px)]:hidden sm:left-auto sm:right-10 sm:w-64">
