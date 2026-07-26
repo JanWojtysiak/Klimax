@@ -114,35 +114,35 @@ export default function SheetHero() {
             <g style={{ transform: "translateY(calc(var(--sy) * -46px))" }}>
               <path
                 className="plane plane-far"
-                d="M0,900 L0,552 L110,508 L200,534 L320,470 L410,508 L530,456 L640,498 L760,450 L880,494 L1000,456 L1120,502 L1240,468 L1380,506 L1520,472 L1600,500 L1600,900 Z"
+                d="M0,1120 L0,552 L110,508 L200,534 L320,470 L410,508 L530,456 L640,498 L760,450 L880,494 L1000,456 L1120,502 L1240,468 L1380,506 L1520,472 L1600,500 L1600,1120 Z"
               />
             </g>
 
             <g style={{ transform: "translateY(calc(var(--sy) * -78px))" }}>
               <path
                 className="plane plane-cliff"
-                d="M1600,900 L1030,900 L1030,486 L1082,438 L1118,356 L1178,330 L1224,262 L1292,296 L1344,244 L1402,286 L1458,240 L1524,278 L1600,228 Z"
+                d="M1600,1120 L1030,1120 L1030,486 L1082,438 L1118,356 L1178,330 L1224,262 L1292,296 L1344,244 L1402,286 L1458,240 L1524,278 L1600,228 Z"
               />
               <g className="plane plane-cliff-shade">
-                <path d="M1128,352 L1152,346 L1168,900 L1140,900 Z" />
-                <path d="M1246,276 L1272,288 L1288,900 L1258,900 Z" />
-                <path d="M1372,266 L1398,282 L1414,900 L1384,900 Z" />
-                <path d="M1494,258 L1520,276 L1536,900 L1506,900 Z" />
+                <path d="M1128,352 L1152,346 L1168,1120 L1140,1120 Z" />
+                <path d="M1246,276 L1272,288 L1288,1120 L1258,1120 Z" />
+                <path d="M1372,266 L1398,282 L1414,1120 L1384,1120 Z" />
+                <path d="M1494,258 L1520,276 L1536,1120 L1506,1120 Z" />
               </g>
             </g>
 
             <g style={{ transform: "translateY(calc(var(--sy) * -110px))" }}>
               <path
                 className="plane plane-mid"
-                d="M0,900 L0,648 L120,614 L240,640 L360,590 L470,624 L580,578 L700,618 L820,592 L940,626 L1060,598 L1180,630 L1300,604 L1440,634 L1600,608 L1600,900 Z"
+                d="M0,1120 L0,648 L120,614 L240,640 L360,590 L470,624 L580,578 L700,618 L820,592 L940,626 L1060,598 L1180,630 L1300,604 L1440,634 L1600,608 L1600,1120 Z"
               />
             </g>
 
             <g style={{ transform: "translateY(calc(var(--sy) * -140px))" }}>
-              <path className="plane plane-ground" d="M0,900 L0,772 L1600,742 L1600,900 Z" />
+              <path className="plane plane-ground" d="M0,1120 L0,772 L1600,742 L1600,1120 Z" />
               <path
                 className="plane plane-ground-shade"
-                d="M0,900 L0,858 L420,836 L900,864 L1600,830 L1600,900 Z"
+                d="M0,1120 L0,858 L420,836 L900,864 L1600,830 L1600,1120 Z"
               />
               <path
                 className="plane plane-forest"
