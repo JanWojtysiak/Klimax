@@ -258,13 +258,13 @@ export default function SheetHero() {
             </p>
           </div>
 
-          <div className="bg-spruce">
+          <div className="bg-white text-spruce">
             <div className="flex flex-col gap-4 px-5 pb-24 pt-5 sm:px-10 md:flex-row md:items-center md:justify-between md:py-5">
               <div className="flex flex-col gap-2">
-                <p className="caption text-xs text-stock sm:text-sm">
+                <p className="caption text-xs sm:text-sm">
                   25 lat · SEP 1/2/3 · F-Gaz
                 </p>
-                <p className="caption text-xs text-stock/70 sm:text-sm">
+                <p className="caption text-xs text-spruce/70 sm:text-sm">
                   Świebodzice i 30 km wokół
                 </p>
               </div>
@@ -272,14 +272,14 @@ export default function SheetHero() {
                 <div className="hidden md:block">
                   <a
                     href="tel:+48601573887"
-                    className="ink-btn bg-vermilion px-6 py-3 text-lg text-stock hover:bg-stock hover:text-vermilion sm:text-xl"
+                    className="ink-btn bg-vermilion px-6 py-3 text-lg text-stock hover:bg-spruce hover:text-stock sm:text-xl"
                   >
                     Zadzwoń +48 601 573 887
                   </a>
                 </div>
                 <a
                   href="#kontakt"
-                  className="ink-btn border-2 border-stock px-6 py-3 text-lg text-stock hover:bg-stock hover:text-spruce sm:text-xl"
+                  className="ink-btn border-2 border-spruce px-6 py-3 text-lg text-spruce hover:bg-spruce hover:text-stock sm:text-xl"
                 >
                   Napisz
                 </a>
