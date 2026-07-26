@@ -202,7 +202,18 @@ export default function SheetHero() {
           </div>
 
           <div className="px-5 pb-6 sm:px-10">
-            <h1 className="display text-stock text-[clamp(3.4rem,15vw,11rem)]">
+            <h1
+              className={`display text-[clamp(3.4rem,15vw,11rem)] ${summer ? "" : "text-stock"}`}
+              style={
+                summer
+                  ? {
+                      color: "#203D3A",
+                      WebkitTextStroke: "4px #F1E9D5",
+                      paintOrder: "stroke fill",
+                    }
+                  : undefined
+              }
+            >
               Pompy{" "}
               <br />
               ciepła
