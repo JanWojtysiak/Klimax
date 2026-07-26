@@ -48,6 +48,14 @@ body {
   font-weight: 600;
 }
 
+.wordmark {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  line-height: 1.1;
+}
+
 .grain::after {
   content: "";
   position: absolute;

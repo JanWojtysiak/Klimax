@@ -192,13 +192,9 @@ export default function SheetHero() {
                 className="h-auto w-24 max-w-full shrink-0 min-[360px]:w-28 sm:w-44"
               />
               <span
-                className="display min-w-0 text-center text-[0.6rem] leading-none min-[360px]:text-[0.7rem] sm:text-lg"
+                className="wordmark min-w-0 text-center text-[0.55rem] min-[360px]:text-[0.62rem] sm:text-sm"
                 style={{
                   color: summer ? "var(--color-spruce)" : "var(--color-stock)",
-                  fontWeight: 900,
-                  WebkitTextStroke: `1px ${summer ? "var(--color-stock)" : "var(--color-spruce)"}`,
-                  paintOrder: "stroke fill",
-                  fontVariationSettings: '"opsz" 72',
                 }}
               >
                 Klimax · Robert Wojtysiak
