@@ -66,7 +66,7 @@ export default function SheetHero() {
       className="relative h-[160vh]"
       style={{ ["--progress" as string]: 0, ["--sy" as string]: 0 }}
     >
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div className="sticky top-0 h-[calc(100svh-60px)] overflow-hidden md:h-screen">
         <div className={`absolute inset-0 grain ${summer ? "summer" : ""}`}>
           <style>{`
             .plane-sky { fill: #2e5567 }
@@ -255,7 +255,7 @@ export default function SheetHero() {
           </div>
 
           <div className="bg-white text-spruce">
-            <div className="flex flex-col gap-4 px-5 pb-24 pt-5 sm:px-10 md:flex-row md:items-center md:justify-between md:py-5">
+            <div className="flex flex-col gap-4 px-5 pb-5 pt-5 sm:px-10 md:flex-row md:items-center md:justify-between md:py-5">
               <div className="flex flex-col gap-2">
                 <p className="caption text-xs sm:text-sm">
                   25 lat · SEP 1/2/3 · F-Gaz
