@@ -177,7 +177,7 @@ export default function SheetHero() {
 
         <div className="relative flex h-full flex-col justify-between">
           <div className="flex items-start justify-between gap-3 px-5 py-5 text-stock sm:gap-4 sm:px-10">
-            <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+            <div className="flex min-w-0 flex-col items-center">
               <Image
                 src={
                   summer
@@ -187,12 +187,12 @@ export default function SheetHero() {
                 alt=""
                 width={1039}
                 height={341}
-                sizes="(min-width: 640px) 5rem, 3.25rem"
+                sizes="(min-width: 640px) 17rem, 13rem"
                 loading="eager"
-                className="h-auto w-[clamp(3.25rem,6vw,5rem)] shrink-0"
+                className="h-auto w-[clamp(13rem,20vw,17rem)] max-w-full shrink-0"
               />
               <span
-                className="display min-w-0 text-[clamp(1.35rem,3.2vw,2rem)] leading-none"
+                className="display min-w-0 text-center text-[clamp(1.25rem,3.2vw,2rem)] leading-none"
                 style={{
                   color: summer ? "var(--color-spruce)" : "var(--color-stock)",
                   fontWeight: 900,
@@ -204,10 +204,12 @@ export default function SheetHero() {
                 Klimax · Robert Wojtysiak
               </span>
             </div>
-            <span className="caption pt-1 text-[0.68rem] sm:text-xs">Arkusz 01</span>
+            <span className="caption shrink-0 pt-1 text-[0.68rem] sm:text-xs">
+              Arkusz 01
+            </span>
           </div>
 
-          <div className="pointer-events-none absolute left-5 top-16 z-10 w-52 bg-spruce px-3 py-3 text-stock [@media(max-height:640px)]:hidden sm:left-auto sm:right-10 sm:w-64">
+          <div className="pointer-events-none absolute left-5 top-32 z-10 w-52 bg-spruce px-3 py-3 text-stock [@media(max-height:640px)]:hidden sm:left-auto sm:right-10 sm:top-16 sm:w-64">
             <div
               className="flex items-center justify-between text-[0.62rem] caption sm:text-[0.68rem]"
               aria-label={`Aktualny sezon: ${summer ? "lato" : "zima"}`}
