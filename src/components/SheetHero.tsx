@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const spruceRow = (
@@ -175,19 +176,34 @@ export default function SheetHero() {
         </div>
 
         <div className="relative flex h-full flex-col justify-between">
-          <div className="flex items-start justify-between gap-4 px-5 py-5 text-stock sm:px-10">
-            <span
-              className="display text-[clamp(1.35rem,3.2vw,2rem)] leading-none"
-              style={{
-                color: summer ? "var(--color-spruce)" : "var(--color-stock)",
-                fontWeight: 900,
-                WebkitTextStroke: `1px ${summer ? "var(--color-stock)" : "var(--color-spruce)"}`,
-                paintOrder: "stroke fill",
-                fontVariationSettings: '"opsz" 72',
-              }}
-            >
-              Klimax · Robert Wojtysiak
-            </span>
+          <div className="flex items-start justify-between gap-3 px-5 py-5 text-stock sm:gap-4 sm:px-10">
+            <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+              <Image
+                src={
+                  summer
+                    ? "/brand/logo-mark-summer.png"
+                    : "/brand/logo-mark-winter.png"
+                }
+                alt=""
+                width={1039}
+                height={341}
+                sizes="(min-width: 640px) 5rem, 3.25rem"
+                loading="eager"
+                className="h-auto w-[clamp(3.25rem,6vw,5rem)] shrink-0"
+              />
+              <span
+                className="display min-w-0 text-[clamp(1.35rem,3.2vw,2rem)] leading-none"
+                style={{
+                  color: summer ? "var(--color-spruce)" : "var(--color-stock)",
+                  fontWeight: 900,
+                  WebkitTextStroke: `1px ${summer ? "var(--color-stock)" : "var(--color-spruce)"}`,
+                  paintOrder: "stroke fill",
+                  fontVariationSettings: '"opsz" 72',
+                }}
+              >
+                Klimax · Robert Wojtysiak
+              </span>
+            </div>
             <span className="caption pt-1 text-[0.68rem] sm:text-xs">Arkusz 01</span>
           </div>
 
