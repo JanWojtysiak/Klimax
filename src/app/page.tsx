@@ -40,6 +40,42 @@ const brands = [
   "Vaillant",
 ];
 
+const permits = [
+  ["SEP 1", "Urządzenia, instalacje i sieci elektroenergetyczne"],
+  ["SEP 2", "Urządzenia wytwarzające i zużywające ciepło"],
+  ["SEP 3", "Urządzenia i instalacje gazowe"],
+  ["F-Gaz", "Czynniki chłodnicze i układy chłodnicze"],
+];
+
+const railGrid =
+  "relative mx-auto grid max-w-6xl grid-cols-[1.75rem_minmax(0,1fr)] gap-x-4 px-5 sm:grid-cols-[3.25rem_minmax(0,1fr)] sm:gap-x-10 sm:px-10";
+
+function RegisterMark({ className }: { className: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path
+        d="M12 0V7M12 17V24M0 12H7M17 12H24"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <path d="M12 7.5 16.5 12 12 16.5 7.5 12Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+function PlateRail({ letter, closing }: { letter: string; closing?: boolean }) {
+  const mark = "h-4 w-4 shrink-0 sm:h-5 sm:w-5";
+  return (
+    <div className="flex flex-col items-center border-r-2 border-stock/25 py-20 text-stock/65 sm:py-28">
+      <RegisterMark className={mark} />
+      <span className="plate-mark mt-5 text-[0.72rem] sm:text-[0.95rem]">
+        Płyta {letter}
+      </span>
+      {closing ? <RegisterMark className={`${mark} mt-auto`} /> : null}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -53,108 +89,78 @@ export default function Home() {
       <main className="flex-1">
         <SheetHero />
 
-        <section className="relative bg-spruce grain">
-          <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-10 sm:py-28">
-            <p className="caption text-xs text-stock/70">Arkusz 02</p>
-            <h2 className="display mt-4 text-stock text-[clamp(2.6rem,9vw,6.5rem)]">
-              Certyfikowany{" "}
-              <br />
-              instalator
-            </h2>
-
-            <ul className="display mt-12 flex flex-wrap items-baseline gap-x-4 gap-y-2 text-stock text-[clamp(1.4rem,4.2vw,2.9rem)] sm:gap-x-6">
-              {brands.map((brand, index) => (
-                <li key={brand} className="flex items-baseline gap-x-4 sm:gap-x-6">
-                  <span>{brand}</span>
-                  {index < brands.length - 1 ? (
-                    <span aria-hidden="true" className="text-stock/35">
-                      ◆
-                    </span>
-                  ) : null}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-14 flex flex-col items-start gap-10 border-t-2 border-stock/25 pt-10 sm:flex-row sm:items-center sm:gap-14">
-              <svg
-                viewBox="0 0 200 200"
-                className="h-36 w-36 shrink-0 sm:h-44 sm:w-44"
-                role="img"
-                aria-label="Pieczęć uprawnień: SEP grupa 1, 2 i 3 oraz certyfikat F-Gaz"
-              >
-                <circle
-                  cx="100"
-                  cy="100"
-                  r="94"
-                  fill="none"
-                  stroke="#efe9da"
-                  strokeWidth="4"
-                  strokeOpacity="0.85"
-                />
-                <circle
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  fill="none"
-                  stroke="#efe9da"
-                  strokeWidth="2"
-                  strokeOpacity="0.5"
-                />
-                <text
-                  x="100"
-                  y="82"
-                  textAnchor="middle"
-                  fill="#efe9da"
-                  fontSize="30"
-                  fontWeight="800"
-                  fontFamily="var(--font-display)"
-                  letterSpacing="1"
-                >
-                  SEP
-                </text>
-                <text
-                  x="100"
-                  y="118"
-                  textAnchor="middle"
-                  fill="#efe9da"
-                  fontSize="34"
-                  fontWeight="800"
-                  fontFamily="var(--font-display)"
-                  letterSpacing="2"
-                >
-                  1·2·3
-                </text>
-                <path
-                  d="M46 132 H154"
-                  stroke="#efe9da"
-                  strokeWidth="2"
-                  strokeOpacity="0.5"
-                />
-                <text
-                  x="100"
-                  y="156"
-                  textAnchor="middle"
-                  fill="#efe9da"
-                  fontSize="26"
-                  fontWeight="800"
-                  fontFamily="var(--font-display)"
-                  letterSpacing="2"
-                >
-                  F-GAZ
-                </text>
-              </svg>
-
-              <div className="max-w-xl">
-                <p className="text-lg leading-relaxed text-stock/85">
-                  Posiadamy certyfikaty montażowe i serwisowe wymienionych
-                  producentów, uprawnienia SEP grupy 1, 2 i 3 oraz certyfikat
-                  F-Gaz.
+        <section className="relative">
+          <div className="relative bg-spruce grain">
+            <div className={railGrid}>
+              <PlateRail letter="A" />
+              <div className="py-20 sm:py-28">
+                <p className="caption text-xs text-stock/70">Arkusz 02</p>
+                <h2 className="display mt-4 text-stock text-[clamp(2.2rem,9vw,6.5rem)] min-[340px]:text-[clamp(2.6rem,9vw,6.5rem)]">
+                  Certyfikowany{" "}
+                  <br />
+                  instalator
+                </h2>
+                <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-stock/85">
+                  Mamy firmowe certyfikaty montażowe i serwisowe wymienionych
+                  producentów. To znaczy, że montaż nie unieważnia gwarancji
+                  urządzenia.
                 </p>
-                <p className="mt-5 text-base leading-relaxed text-stock/70">
-                  To znaczy, że montaż nie unieważnia gwarancji producenta, a
-                  instalację elektryczną i czynnik chłodniczy obsługuje ktoś, kto
-                  ma do tego papiery.
+
+                <div className="rule-diamond mt-12 text-stock/35">
+                  <span className="caption shrink-0 text-xs text-stock/80">
+                    09 producentów
+                  </span>
+                </div>
+                <ul className="mt-8 grid grid-cols-3 border-b-2 border-stock/20">
+                  {brands.map((brand) => (
+                    <li
+                      key={brand}
+                      className="display border-t-2 border-stock/20 py-4 pr-2 text-stock text-[clamp(1rem,3.6vw,2.75rem)] sm:pr-6 sm:py-5"
+                    >
+                      {brand}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative bg-slate grain">
+            <div className={railGrid}>
+              <PlateRail letter="B" closing />
+              <div className="py-20 sm:py-28">
+                <h2 className="display text-stock text-[clamp(2.2rem,9vw,6.5rem)] min-[340px]:text-[clamp(2.6rem,9vw,6.5rem)]">
+                  Uprawnienia{" "}
+                  <br />
+                  zawodowe
+                </h2>
+                <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-stock/85">
+                  Instalację elektryczną i czynnik chłodniczy obsługuje u nas
+                  ktoś, kto ma do tego uprawnienia wymagane prawem.
                 </p>
+
+                <div className="rule-diamond mt-12 text-stock/35">
+                  <span className="caption shrink-0 text-xs text-stock/80">
+                    04 uprawnienia
+                  </span>
+                </div>
+                <dl className="mt-8 grid border-b-2 border-stock/25 sm:grid-cols-2">
+                  {permits.map(([code, scope], index) => (
+                    <div
+                      key={code}
+                      className={`border-t-2 border-stock/25 py-7 pr-4 sm:py-9 ${
+                        index % 2 === 0 ? "sm:border-r-2 sm:pr-10" : "sm:pl-10"
+                      }`}
+                    >
+                      <dt className="display text-stock text-[clamp(4.5rem,13vw,8rem)]">
+                        {code}
+                      </dt>
+                      <dd className="caption mt-5 text-[0.7rem] leading-relaxed text-stock/80 sm:text-xs">
+                        {scope}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
             </div>
           </div>
@@ -221,7 +227,9 @@ export default function Home() {
               dojeżdżamy
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-spruce/80">
-              Pracujemy w promieniu około 30 kilometrów od Świebodzic.
+              Pracujemy w promieniu około 30 kilometrów od Świebodzic. Pasma są
+              orientacyjne — jeśli Twojej miejscowości nie ma na liście, zadzwoń,
+              najczęściej i tak dojedziemy.
             </p>
           </div>
 
@@ -238,13 +246,6 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="mx-auto max-w-6xl px-5 py-10 sm:px-10">
-            <p className="text-sm leading-relaxed text-spruce/70">
-              Pasma odległości są orientacyjne. Jeśli Twojej miejscowości nie ma
-              na liście, zadzwoń — najczęściej i tak dojedziemy.
-            </p>
           </div>
         </section>
 
