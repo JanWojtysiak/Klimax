@@ -10,7 +10,7 @@
 
 **STORY.** Właściciel domu pod Świebodzicami rozumie w pierwszym ekranie, że Klimax montuje pompy ciepła u niego w okolicy; widzi, że instalacja pracuje przez cały rok; sprawdza uprawnienia i zasięg dojazdu; dzwoni.
 
-**FIRST VIEWPORT.** Krajobraz sudecki spłaszczony do płaszczyzn: łupkowe niebo, klif po prawej, pas świerków, śnieg z niezadrukowanego papieru, dom po lewej, a przy jego ścianie wermilionowa pompa — jedyny ciepły obiekt na arkuszu. „POMPY CIEPŁA" wybite na niebie, pas podpisu u dołu z zasięgiem i telefonem jako akcją główną.
+**FIRST VIEWPORT.** Krajobraz sudecki spłaszczony do płaszczyzn: łupkowe niebo, klif po prawej, pas świerków, śnieg z niezadrukowanego papieru, dom po lewej, a przy jego ścianie wermilionowa pompa — jedyny ciepły obiekt na arkuszu. „POMPY CIEPŁA" wybite na niebie, pas podpisu u dołu z zasięgiem i telefonem jako akcją główną. Arkusz 01 jest jednocześnie serią sześciu odbitek: strzałki wymieniają płytę usługi, a krajobraz zostaje w rejestrze co do piksela.
 
 **FORM.** Plakat parkowy WPA (`posters-covers-sleeves-wpa-park-poster`), wylosowany jako challenger i wybrany przez użytkownika ponad przypisany kierunek (izometria, pozycja 3 listy), seed `eb13c6ee`. Staging: własny, stos pełnoekranowych arkuszy — aperture-projection odrzucony jako niezgodny z drukiem.
 
@@ -34,10 +34,13 @@ Pięć farb. Jeden arkusz używa najwyżej czterech.
 
 Zasady:
 
-- Wermilion jest zarezerwowany dla ciepła: jednostka pompy ciepła, temperatura, akcja główna. Nic innego nie jest wermilionowe.
+- Wermilion jest zarezerwowany dla czynnej instalacji: obiekt aktywnej usługi na arkuszu 01 (pompa, klimatyzator, rekuperator, rozdzielnica, piony wod-kan, płyta podłogówki), temperatura, akcja główna. Nic innego nie jest wermilionowe. Krajobraz i budynek nigdy nie dostają tej farby — dostaje ją wyłącznie to, co Klimax montuje.
 - Śnieg to niezadrukowany papier, nie biała farba. Biel `#FFFFFF` nie istnieje w systemie.
 - Kolor obejmuje całe pola, nigdy akcenty rozsypane po neutralnym tle. Każdy arkusz ma jedną farbę dominującą.
-- Strona przeplata arkusze ciemne (świerk, łupek) i jasne (papier). Dwa jasne arkusze nie stoją obok siebie.
+- Strona przeplata arkusze ciemne (świerk, łupek) i jasne (papier).
+- Sąsiadujące arkusze nigdy nie dzielą farby dominującej — ani dwa jasne, ani dwa ciemne. Ostatnie pole arkusza i pierwsze pole następnego muszą być w różnych farbach.
+- Krawędź arkusza jest zdarzeniem drukarskim: zmiana farby albo pełnoszerokościowa podwójna linijka z rombem (`.rule-diamond`). Nigdy nic.
+- Jasne pole poniżej 200 px wysokości między dwoma polami farby nie jest arkuszem, tylko okrawkiem. Albo je rozbuduj, albo usuń, a treść przenieś do sąsiedniego arkusza.
 
 ## Type
 
@@ -57,11 +60,19 @@ Zasady:
 
 ## Motion
 
-Jeden autorski moment: **przedruk sezonowy**. Ta sama scena, przypięta na czas przewijania, zmienia farby z zimowych na letnie. Krawędzie płaszczyzn nie ruszają się ani o piksel — zmienia się wyłącznie `fill`. Wermilionowa pompa nie zmienia farby w żadnym sezonie; to jest argument produktowy zagrany jako materiał.
+Dwa autorskie momenty, oba z tej samej metafory: arkusz zostaje na prasie, wymienia się farba albo płyta.
+
+**Przedruk sezonowy** (przewijanie). Ta sama scena, przypięta na czas przewijania, zmienia farby z zimowych na letnie. Krawędzie płaszczyzn nie ruszają się ani o piksel — zmienia się wyłącznie `fill`. Wermilionowa instalacja nie zmienia farby w żadnym sezonie; to jest argument produktowy zagrany jako materiał.
+
+**Wymiana płyty** (strzałki usług). Krajobraz jest płytą podkładową i nie drgnie. Rusza się wyłącznie płyta wermilionowa i jej podpis:
+
+- Hasło i podpis odsłania twarda krawędź przechodząca w stronę strzałki — ruch rakla, `linear`, 400 ms. Nigdy przenikanie.
+- Nowe hasło przyjeżdża z wermilionowym duchem przesuniętym o kilka pikseli, który wskakuje w rejestr i znika — poprawiona pasówka, 520 ms, `cubic-bezier(0.16, 1, 0.3, 1)`.
+- Obiekt usługi wjeżdża w scenę wzdłuż osi rejestru, 560 ms, ta sama krzywa. Poprzednia płyta jest zdejmowana cięciem, nie wygaszana.
 
 Poza tym: subtelna paralaksa płaszczyzn hero. Nic więcej. Żadnych wejść sekcji.
 
-Wszystkie ruchy respektują `prefers-reduced-motion`: przedruk staje się natychmiastowy, paralaksa znika.
+Wszystkie ruchy respektują `prefers-reduced-motion`: przedruk i wymiana płyty stają się natychmiastowe, duch pasówki nie powstaje, paralaksa znika.
 
 ## Content rules
 
