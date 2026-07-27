@@ -30,6 +30,7 @@ export const plates: Plate[] = [
     id: "klimatyzacja",
     title: "Klimatyzacja",
     note: "Montaż i przeglądy. Moc dobrana do metrażu.",
+    summerNote: "Latem pracuje codziennie. To jej sezon.",
     object: (
       <>
         <path className="plane plane-heat" d="M300,700 L424,700 L424,722 L300,722 Z" />
@@ -104,6 +105,7 @@ export const plates: Plate[] = [
     id: "podlogowka",
     title: "Ogrzewanie\npodłogowe",
     note: "Wykonanie instalacji: pętle i rozdzielacz.",
+    summerNote: "Latem nie grzeje. Wtedy najlepiej ją kłaść.",
     object: (
       <>
         <path className="plane plane-heat" d="M464,700 L512,700 L512,748 L464,748 Z" />
