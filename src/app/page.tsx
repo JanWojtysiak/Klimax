@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SheetHero from "@/components/SheetHero";
 import ContactSheet from "@/components/ContactSheet";
 
@@ -93,34 +94,47 @@ export default function Home() {
           <div className="relative bg-spruce grain">
             <div className={railGrid}>
               <PlateRail letter="A" />
-              <div className="py-20 sm:py-28">
-                <p className="caption text-xs text-stock/70">Arkusz 02</p>
-                <h2 className="display mt-4 text-stock text-[clamp(2.2rem,9vw,6.5rem)] min-[340px]:text-[clamp(2.6rem,9vw,6.5rem)]">
-                  Certyfikowany{" "}
-                  <br />
-                  instalator
-                </h2>
-                <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-stock/85">
-                  Mamy firmowe certyfikaty montażowe i serwisowe wymienionych
-                  producentów. To znaczy, że montaż nie unieważnia gwarancji
-                  urządzenia.
-                </p>
-
-                <div className="rule-diamond mt-12 text-stock/35">
-                  <span className="caption shrink-0 text-xs text-stock/80">
-                    09 producentów
-                  </span>
+              <div className="py-20 sm:py-28 md:grid md:grid-cols-[minmax(0,1fr)_auto] md:gap-x-8 lg:gap-x-14">
+                <div className="md:col-start-1 md:row-start-1 md:pb-12">
+                  <p className="caption text-xs text-stock/70">Arkusz 02</p>
+                  <h2 className="display mt-4 text-stock text-[clamp(2.2rem,9vw,6.5rem)] min-[340px]:text-[clamp(2.6rem,9vw,6.5rem)]">
+                    Certyfikowany{" "}
+                    <br />
+                    instalator
+                  </h2>
+                  <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-stock/85">
+                    Mamy firmowe certyfikaty montażowe i serwisowe wymienionych
+                    producentów. To znaczy, że montaż nie unieważnia gwarancji
+                    urządzenia.
+                  </p>
                 </div>
-                <ul className="mt-8 grid grid-cols-3 border-b-2 border-stock/20">
-                  {brands.map((brand) => (
-                    <li
-                      key={brand}
-                      className="display border-t-2 border-stock/20 py-4 pr-2 text-stock text-[clamp(1rem,3.6vw,2.75rem)] sm:pr-6 sm:py-5"
-                    >
-                      {brand}
-                    </li>
-                  ))}
-                </ul>
+
+                <Image
+                  src="/instalator.png"
+                  alt="Instalator Klimax obok jednostki klimatyzacji"
+                  width={899}
+                  height={1131}
+                  sizes="(min-width: 768px) 20vw, 68vw"
+                  className="mt-14 ml-auto block h-auto w-[68%] max-w-[16rem] sm:max-w-[15rem] md:col-start-2 md:row-start-1 md:mt-0 md:w-[18vw] md:max-w-none md:self-end lg:w-[clamp(13rem,20vw,18rem)]"
+                />
+
+                <div className="md:col-span-2 md:row-start-2">
+                  <div className="rule-diamond text-stock/35">
+                    <span className="caption shrink-0 text-xs text-stock/80">
+                      09 producentów
+                    </span>
+                  </div>
+                  <ul className="mt-8 grid grid-cols-3 border-b-2 border-stock/20">
+                    {brands.map((brand) => (
+                      <li
+                        key={brand}
+                        className="display border-t-2 border-stock/20 py-4 pr-2 text-stock text-[clamp(1rem,3.6vw,2.75rem)] sm:pr-6 sm:py-5"
+                      >
+                        {brand}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
