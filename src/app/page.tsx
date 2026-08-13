@@ -335,23 +335,37 @@ export default function Home() {
                             href={brand.href}
                             target="_blank"
                             rel="noreferrer"
-                            className={`group flex items-center justify-between gap-4 pr-2 transition-colors duration-200 hover:bg-stock hover:text-spruce focus-visible:bg-stock focus-visible:text-spruce focus-visible:outline-none sm:gap-6 sm:pr-6 ${
+                            className={`group flex items-center justify-between gap-4 pr-2 transition-colors duration-200 focus-visible:outline-none sm:gap-6 sm:pr-6 ${
                               index === 0
-                                ? "py-7 leading-[1.06] sm:py-9 lg:py-11 text-[clamp(2.4rem,13vw,4.5rem)] lg:text-[clamp(3rem,12vw,9.5rem)]"
+                                ? "bg-ochre py-7 leading-[1.06] hover:bg-spruce focus-visible:bg-spruce sm:py-9 lg:py-11 text-[clamp(2.4rem,13vw,4.5rem)] lg:text-[clamp(3rem,12vw,9.5rem)]"
                                 : `py-4 sm:py-6 lg:py-7 text-[clamp(1.6rem,7vw,3rem)] lg:text-[clamp(2rem,4.4vw,3.7rem)] ${
                                     index % 2 === 1
-                                      ? "pr-4 sm:pr-8 lg:pr-10"
-                                      : "pl-4 sm:pl-8 lg:pl-10"
+                                      ? "pr-4 hover:bg-stock focus-visible:bg-stock sm:pr-8 lg:pr-10"
+                                      : "pl-4 hover:bg-ochre focus-visible:bg-ochre sm:pl-8 lg:pl-10"
                                   }`
                             }`}
                           >
                             <span className="flex min-w-0 flex-1 items-center gap-3 sm:gap-5">
-                              <span className="caption shrink-0 text-[0.6rem] text-stock/45 group-hover:text-spruce/60 sm:text-[0.7rem]">
+                              <span
+                                className={`caption shrink-0 text-[0.6rem] sm:text-[0.7rem] ${
+                                  index === 0
+                                    ? "text-spruce/60 group-hover:text-ochre/70"
+                                    : "text-stock/45 group-hover:text-spruce/60"
+                                }`}
+                              >
                                 {String(index + 1).padStart(2, "0")}
                               </span>
                               <span
                                 aria-hidden="true"
-                                className="brand-logo h-[0.7em] w-full text-stock transition-colors duration-200 group-hover:text-spruce"
+                                className={`brand-logo transition-colors duration-200 ${
+                                  index === 0
+                                    ? "h-[0.6em] w-[82%] text-spruce group-hover:text-ochre"
+                                    : `h-[0.7em] w-full group-hover:text-spruce ${
+                                        index % 2 === 1
+                                          ? "text-stock"
+                                          : "text-ochre"
+                                      }`
+                                }`}
                                 style={{
                                   maskImage: `url(${brand.logo})`,
                                   WebkitMaskImage: `url(${brand.logo})`,
@@ -360,7 +374,7 @@ export default function Home() {
                               <span className="sr-only">{brand.name}</span>
                             </span>
                             {index === 0 ? (
-                              <RegisterMark className="h-4 w-4 shrink-0 text-stock/45 group-hover:text-spruce/60 sm:h-5 sm:w-5" />
+                              <RegisterMark className="h-4 w-4 shrink-0 text-spruce/60 group-hover:text-ochre/70 sm:h-5 sm:w-5" />
                             ) : null}
                           </a>
                         </li>
