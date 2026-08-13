@@ -137,55 +137,46 @@ const brands = [
     name: "Rotenso",
     href: "https://rotenso.com/pl/",
     logo: "/brand/logos/rotenso.png",
-    ratio: "402 / 82",
   },
   {
     name: "Panasonic",
     href: "https://www.aircon.panasonic.eu/PL_pl/",
     logo: "/brand/logos/panasonic.png",
-    ratio: "776 / 120",
   },
   {
     name: "Atlantic",
     href: "https://groupe-atlantic.pl/",
     logo: "/brand/logos/atlantic.png",
-    ratio: "667 / 120",
   },
   {
     name: "Gree",
     href: "https://gree.pl/",
     logo: "/brand/logos/gree.png",
-    ratio: "611 / 120",
   },
   {
     name: "Kaisai",
     href: "https://kaisai.com/pl/",
     logo: "/brand/logos/kaisai.png",
-    ratio: "610 / 120",
   },
   {
     name: "Midea",
     href: "https://www.midea.com/pl",
     logo: "/brand/logos/midea.png",
-    ratio: "312 / 120",
   },
   {
     name: "Fuji",
     href: "https://fujielectric.eu/",
     logo: "/brand/logos/fuji.png",
-    ratio: "688 / 120",
   },
   {
     name: "Daikin",
     href: "https://www.daikin.pl/",
     logo: "/brand/logos/daikin.png",
-    ratio: "568 / 120",
   },
   {
     name: "Vaillant",
     href: "https://www.vaillant.pl/",
     logo: "/brand/logos/vaillant.png",
-    ratio: "462 / 120",
   },
 ];
 
@@ -354,30 +345,23 @@ export default function Home() {
                                   }`
                             }`}
                           >
-                            <span className="flex items-baseline gap-3 sm:gap-5">
+                            <span className="flex min-w-0 flex-1 items-center gap-3 sm:gap-5">
                               <span className="caption shrink-0 text-[0.6rem] text-stock/45 group-hover:text-spruce/60 sm:text-[0.7rem]">
                                 {String(index + 1).padStart(2, "0")}
                               </span>
-                              {brand.name}
-                            </span>
-                            <span className="flex shrink items-center gap-4 sm:gap-6">
                               <span
                                 aria-hidden="true"
-                                className={`brand-logo text-stock/45 transition-colors duration-200 group-hover:text-spruce ${
-                                  index === 0
-                                    ? "h-6 max-w-[30vw] sm:h-8 lg:h-12"
-                                    : "hidden h-4 max-w-[24vw] sm:block lg:h-5"
-                                }`}
+                                className="brand-logo h-[0.7em] w-full text-stock transition-colors duration-200 group-hover:text-spruce"
                                 style={{
-                                  aspectRatio: brand.ratio,
                                   maskImage: `url(${brand.logo})`,
                                   WebkitMaskImage: `url(${brand.logo})`,
                                 }}
                               />
-                              {index === 0 ? (
-                                <RegisterMark className="h-4 w-4 shrink-0 text-stock/45 group-hover:text-spruce/60 sm:h-5 sm:w-5" />
-                              ) : null}
+                              <span className="sr-only">{brand.name}</span>
                             </span>
+                            {index === 0 ? (
+                              <RegisterMark className="h-4 w-4 shrink-0 text-stock/45 group-hover:text-spruce/60 sm:h-5 sm:w-5" />
+                            ) : null}
                           </a>
                         </li>
                       ))}

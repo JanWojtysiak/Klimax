@@ -80,8 +80,8 @@ body {
   background-color: currentColor;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  -webkit-mask-position: right center;
-  mask-position: right center;
+  -webkit-mask-position: left center;
+  mask-position: left center;
   -webkit-mask-size: contain;
   mask-size: contain;
 }
