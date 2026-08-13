@@ -41,6 +41,11 @@ export default function SheetHero() {
   };
 
   useEffect(() => {
+    const timer = setInterval(() => go(1), 4000);
+    return () => clearInterval(timer);
+  }, [index]);
+
+  useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
