@@ -109,10 +109,70 @@ const brands = [
 ];
 
 const permits = [
-  ["SEP 1", "Urządzenia, instalacje i sieci elektroenergetyczne"],
-  ["SEP 2", "Urządzenia wytwarzające i zużywające ciepło"],
-  ["SEP 3", "Urządzenia i instalacje gazowe"],
-  ["F-Gaz", "Czynniki chłodnicze i układy chłodnicze"],
+  {
+    family: "SEP",
+    stamp: "1",
+    scope: "Urządzenia, instalacje i sieci elektroenergetyczne",
+    emblem: (
+      <>
+        <path d="M20,6 L36,6 L36,10 L20,10 Z" />
+        <path d="M26,10 L30,10 L30,20 L26,20 Z" />
+        <path
+          d="M28,22 L18,36 L27,36 L24,50 L38,32 L29,32 Z"
+          fillRule="evenodd"
+        />
+        <path d="M8,54 L48,54 L48,58 L8,58 Z" />
+      </>
+    ),
+  },
+  {
+    family: "SEP",
+    stamp: "2",
+    scope: "Urządzenia wytwarzające i zużywające ciepło",
+    emblem: (
+      <>
+        <path d="M12,8 L44,8 L44,40 L12,40 Z M18,14 L38,14 L38,34 L18,34 Z" />
+        <path d="M22,44 L26,44 L26,58 L22,58 Z" />
+        <path d="M30,44 L34,44 L34,58 L30,58 Z" />
+        <path d="M6,20 L12,20 L12,24 L6,24 Z M44,20 L50,20 L50,24 L44,24 Z" />
+      </>
+    ),
+  },
+  {
+    family: "SEP",
+    stamp: "3",
+    scope: "Urządzenia i instalacje gazowe",
+    emblem: (
+      <>
+        <path d="M28,4 L40,20 L40,34 L16,34 L16,20 Z M24,20 L32,20 L32,30 L24,30 Z" />
+        <path d="M14,36 L42,36 L42,40 L14,40 Z" />
+        <path d="M20,44 L24,44 L24,58 L20,58 Z" />
+        <path d="M32,44 L36,44 L36,58 L32,58 Z" />
+      </>
+    ),
+  },
+  {
+    family: "F-Gaz",
+    stamp: (
+      <svg viewBox="0 0 56 56" aria-hidden="true" className="h-[0.62em] w-[0.62em]">
+        <path
+          fill="currentColor"
+          d="M25,2 L31,2 L31,54 L25,54 Z M2,15 L54,15 L54,21 L2,21 Z M2,35 L54,35 L54,41 L2,41 Z"
+          transform="rotate(45 28 28)"
+        />
+      </svg>
+    ),
+    scope: "Czynniki chłodnicze i układy chłodnicze",
+    emblem: (
+      <>
+        <path d="M10,10 L46,10 L46,14 L10,14 Z" />
+        <path d="M14,18 L18,18 L18,44 L14,44 Z" />
+        <path d="M38,18 L42,18 L42,44 L38,44 Z" />
+        <path d="M22,24 L34,24 L34,28 L22,28 Z M22,34 L34,34 L34,38 L22,38 Z" />
+        <path d="M10,48 L46,48 L46,52 L10,52 Z" />
+      </>
+    ),
+  },
 ];
 
 const railGrid =
@@ -247,19 +307,33 @@ export default function Home() {
                   </span>
                 </div>
                 <dl className="mt-8 grid border-b-2 border-stock/25 sm:grid-cols-2">
-                  {permits.map(([code, scope], index) => (
+                  {permits.map((permit, index) => (
                     <div
-                      key={code}
-                      className={`border-t-2 border-stock/25 py-7 pr-4 sm:py-9 ${
+                      key={`${permit.family}-${index}`}
+                      className={`flex items-start gap-5 border-t-2 border-stock/25 py-7 pr-4 sm:gap-8 sm:py-9 ${
                         index % 2 === 0 ? "sm:border-r-2 sm:pr-10" : "sm:pl-10"
                       }`}
                     >
-                      <dt className="display text-stock text-[clamp(4.5rem,13vw,8rem)]">
-                        {code}
-                      </dt>
-                      <dd className="caption mt-5 text-[0.7rem] leading-relaxed text-stock/80 sm:text-xs">
-                        {scope}
-                      </dd>
+                      <svg
+                        viewBox="0 0 56 62"
+                        aria-hidden="true"
+                        className="mt-2 h-16 w-14 shrink-0 fill-stock/55 sm:h-20 sm:w-[4.5rem]"
+                      >
+                        {permit.emblem}
+                      </svg>
+                      <div className="min-w-0">
+                        <dt className="flex items-center gap-3 sm:gap-4">
+                          <span className="display text-stock text-[clamp(1.6rem,5vw,2.6rem)]">
+                            {permit.family}
+                          </span>
+                          <span className="display inline-flex h-[1.35em] min-w-[1.35em] items-center justify-center bg-stock px-2 text-slate text-[clamp(2.2rem,7vw,3.4rem)] leading-none">
+                            {permit.stamp}
+                          </span>
+                        </dt>
+                        <dd className="caption mt-5 text-[0.7rem] leading-relaxed text-stock/80 sm:text-xs">
+                          {permit.scope}
+                        </dd>
+                      </div>
                     </div>
                   ))}
                 </dl>
