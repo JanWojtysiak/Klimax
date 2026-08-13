@@ -184,12 +184,19 @@ export default function Home() {
                         09 producentów
                       </span>
                     </div>
-                    <ul className="mt-8 grid grid-cols-3 border-b-2 border-stock/20">
-                      {brands.map((brand) => (
+                    <ul className="mt-8 grid grid-cols-2 border-b-2 border-stock/20">
+                      {brands.map((brand, index) => (
                         <li
                           key={brand}
-                          className="display border-t-2 border-stock/20 py-4 pr-2 text-stock text-[clamp(1rem,3.6vw,2.75rem)] sm:py-5 sm:pr-6 lg:py-8 lg:text-[clamp(1rem,2.4vw,2.25rem)]"
+                          className={`display flex items-baseline gap-3 border-t-2 border-stock/20 py-4 pr-2 text-stock text-[clamp(1.6rem,7vw,3rem)] last:col-span-2 last:border-r-0 sm:gap-5 sm:py-6 sm:pr-6 lg:py-7 lg:text-[clamp(2rem,4.4vw,4rem)] ${
+                            index % 2 === 0
+                              ? "border-r-2 pr-4 sm:pr-8 lg:pr-10"
+                              : "pl-4 sm:pl-8 lg:pl-10"
+                          }`}
                         >
+                          <span className="caption shrink-0 text-[0.6rem] text-stock/45 sm:text-[0.7rem]">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
                           {brand}
                         </li>
                       ))}
