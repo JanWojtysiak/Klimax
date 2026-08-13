@@ -57,7 +57,7 @@ const serviceIcons: Record<string, ReactNode> = {
 const serviceIconColors: Record<string, string> = {
   heatPump: "text-vermilion",
   ac: "text-slate",
-  recuperation: "text-spruce/70",
+  recuperation: "text-spruce/70 group-hover:text-stock/80",
   electric: "text-ochre",
   water: "text-slate",
   floor: "text-vermilion",
@@ -270,7 +270,10 @@ export default function Home() {
           </div>
           <ul className="relative mt-12 border-t-2 border-spruce/25">
             {services.map(([name, note, icon]) => (
-              <li key={name} className="border-b-2 border-spruce/25">
+              <li
+                key={name}
+                className="group border-b-2 border-spruce/25 transition-colors duration-200 hover:bg-spruce hover:text-stock"
+              >
                 <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-7 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8 sm:px-10">
                   <h3 className="display flex items-center gap-4 text-[clamp(1.9rem,5.5vw,3.4rem)]">
                     <ServiceIcon name={icon} />
