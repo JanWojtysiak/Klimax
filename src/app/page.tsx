@@ -1,15 +1,73 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import SheetHero from "@/components/SheetHero";
 import ContactSheet from "@/components/ContactSheet";
 
-const services = [
-  ["Pompy ciepła", "Dobór, montaż i serwis."],
-  ["Klimatyzacja", "Montaż i przeglądy."],
-  ["Rekuperacja", "Wentylacja z odzyskiem ciepła."],
-  ["Instalacje elektryczne", "Wykonanie i modernizacja."],
-  ["Instalacje wod-kan", "Woda i kanalizacja."],
-  ["Ogrzewanie podłogowe", "Wykonanie instalacji."],
+const services: [string, string, string][] = [
+  ["Pompy ciepła", "Dobór, montaż i serwis.", "heatPump"],
+  ["Klimatyzacja", "Montaż i przeglądy.", "ac"],
+  ["Rekuperacja", "Wentylacja z odzyskiem ciepła.", "recuperation"],
+  ["Instalacje elektryczne", "Wykonanie i modernizacja.", "electric"],
+  ["Instalacje wod-kan", "Woda i kanalizacja.", "water"],
+  ["Ogrzewanie podłogowe", "Wykonanie instalacji.", "floor"],
 ];
+
+const serviceIcons: Record<string, ReactNode> = {
+  heatPump: (
+    <>
+      <rect x="2.5" y="5.5" width="19" height="13" />
+      <circle cx="9" cy="12" r="3.6" />
+      <path d="M9 8.4V12h3.6M16 8.5h3M16 12h3M16 15.5h3" />
+    </>
+  ),
+  ac: (
+    <>
+      <rect x="2.5" y="4.5" width="19" height="6.5" />
+      <path d="M6 8h8" />
+      <path d="M6 14.5 9 17l3-2.5M12 14.5 15 17l3-2.5M6 18.5 9 21l3-2.5M12 18.5 15 21l3-2.5" />
+    </>
+  ),
+  recuperation: (
+    <>
+      <rect x="7.5" y="7.5" width="9" height="9" />
+      <path d="M7.5 10H2.5M2.5 10V4M16.5 14h5M21.5 14v6" />
+      <path d="M4.5 6.5 2.5 4 .8 6.5M19.5 17.5l2 2.5 1.7-2.5" />
+    </>
+  ),
+  electric: (
+    <>
+      <rect x="4.5" y="2.5" width="15" height="19" />
+      <path d="M13.5 6 9.5 12.5h5L10.5 18" />
+    </>
+  ),
+  water: (
+    <>
+      <path d="M12 3.5c3 4 5 6.6 5 9a5 5 0 0 1-10 0c0-2.4 2-5 5-9Z" />
+      <path d="M12 12.5v4" />
+    </>
+  ),
+  floor: (
+    <>
+      <path d="M2.5 19.5h19" />
+      <path d="M3.5 16V7.5h3.4V16h3.4V7.5h3.4V16h3.4V7.5h3.4V16" />
+    </>
+  ),
+};
+
+function ServiceIcon({ name }: { name: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-[1em] w-[1em] shrink-0 opacity-80"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      aria-hidden="true"
+    >
+      {serviceIcons[name]}
+    </svg>
+  );
+}
 
 const bands = [
   {
@@ -202,10 +260,11 @@ export default function Home() {
             </h2>
           </div>
           <ul className="relative mt-12 border-t-2 border-spruce/25">
-            {services.map(([name, note]) => (
+            {services.map(([name, note, icon]) => (
               <li key={name} className="border-b-2 border-spruce/25">
                 <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-7 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8 sm:px-10">
-                  <h3 className="display text-[clamp(1.9rem,5.5vw,3.4rem)]">
+                  <h3 className="display flex items-center gap-4 text-[clamp(1.9rem,5.5vw,3.4rem)]">
+                    <ServiceIcon name={icon} />
                     {name}
                   </h3>
                   <p className="caption shrink-0 text-xs opacity-80 sm:text-sm">
