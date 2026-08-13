@@ -3,13 +3,13 @@ import Image from "next/image";
 import SheetHero from "@/components/SheetHero";
 import ContactSheet from "@/components/ContactSheet";
 
-const services: [string, string, string][] = [
-  ["Pompy ciepła", "Dobór, montaż i serwis.", "heatPump"],
-  ["Klimatyzacja", "Montaż i przeglądy.", "ac"],
-  ["Rekuperacja", "Wentylacja z odzyskiem ciepła.", "recuperation"],
-  ["Instalacje elektryczne", "Wykonanie i modernizacja.", "electric"],
-  ["Instalacje wod-kan", "Woda i kanalizacja.", "water"],
-  ["Ogrzewanie podłogowe", "Wykonanie instalacji.", "floor"],
+const services: [string, string][] = [
+  ["Pompy ciepła", "heatPump"],
+  ["Klimatyzacja", "ac"],
+  ["Rekuperacja", "recuperation"],
+  ["Instalacje elektryczne", "electric"],
+  ["Instalacje wod-kan", "water"],
+  ["Ogrzewanie podłogowe", "floor"],
 ];
 
 const serviceIcons: Record<string, ReactNode> = {
@@ -132,11 +132,12 @@ function RangeRing({ active }: { active: number }) {
   );
 }
 
-const brands = [
+const brands: { name: string; href: string; logo: string; mark?: string }[] = [
   {
     name: "Rotenso",
     href: "https://rotenso.com/pl/",
-    logo: "/brand/logos/rotenso.png",
+    logo: "/brand/logos/rotenso-word.png",
+    mark: "/brand/logos/rotenso-mark.png",
   },
   {
     name: "Panasonic",
@@ -337,7 +338,7 @@ export default function Home() {
                             rel="noreferrer"
                             className={`group flex items-center justify-between gap-4 pr-2 transition-colors duration-200 focus-visible:outline-none sm:gap-6 sm:pr-6 ${
                               index === 0
-                                ? "bg-ochre py-7 leading-[1.06] hover:bg-spruce focus-visible:bg-spruce sm:py-9 lg:py-11 text-[clamp(2.4rem,13vw,4.5rem)] lg:text-[clamp(3rem,12vw,9.5rem)]"
+                                ? "py-7 leading-[1.06] sm:py-9 lg:py-11 text-[clamp(2.4rem,13vw,4.5rem)] lg:text-[clamp(3rem,12vw,9.5rem)]"
                                 : `py-4 sm:py-6 lg:py-7 text-[clamp(1.6rem,7vw,3rem)] lg:text-[clamp(2rem,4.4vw,3.7rem)] ${
                                     index % 2 === 1
                                       ? "pr-4 hover:bg-stock focus-visible:bg-stock sm:pr-8 lg:pr-10"
@@ -349,32 +350,48 @@ export default function Home() {
                               <span
                                 className={`caption shrink-0 text-[0.6rem] sm:text-[0.7rem] ${
                                   index === 0
-                                    ? "text-spruce/60 group-hover:text-ochre/70"
+                                    ? "text-stock/45 group-hover:text-ochre"
                                     : "text-stock/45 group-hover:text-spruce/60"
                                 }`}
                               >
                                 {String(index + 1).padStart(2, "0")}
                               </span>
                               <span
-                                aria-hidden="true"
-                                className={`brand-logo transition-colors duration-200 ${
+                                className={`relative ${
                                   index === 0
-                                    ? "h-[0.6em] w-[82%] text-spruce group-hover:text-ochre"
-                                    : `h-[0.7em] w-full group-hover:text-spruce ${
-                                        index % 2 === 1
-                                          ? "text-stock"
-                                          : "text-ochre"
-                                      }`
+                                    ? "h-[0.62em] w-[86%]"
+                                    : "h-[0.7em] w-full"
                                 }`}
-                                style={{
-                                  maskImage: `url(${brand.logo})`,
-                                  WebkitMaskImage: `url(${brand.logo})`,
-                                }}
-                              />
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  className={`brand-logo absolute inset-0 transition-colors duration-200 ${
+                                    index === 0
+                                      ? "text-stock group-hover:text-ochre"
+                                      : index % 2 === 1
+                                        ? "text-stock group-hover:text-spruce"
+                                        : "text-ochre group-hover:text-spruce"
+                                  }`}
+                                  style={{
+                                    maskImage: `url(${brand.logo})`,
+                                    WebkitMaskImage: `url(${brand.logo})`,
+                                  }}
+                                />
+                                {brand.mark ? (
+                                  <span
+                                    aria-hidden="true"
+                                    className="brand-logo absolute inset-0 text-ochre transition-colors duration-200 group-hover:text-stock"
+                                    style={{
+                                      maskImage: `url(${brand.mark})`,
+                                      WebkitMaskImage: `url(${brand.mark})`,
+                                    }}
+                                  />
+                                ) : null}
+                              </span>
                               <span className="sr-only">{brand.name}</span>
                             </span>
                             {index === 0 ? (
-                              <RegisterMark className="h-4 w-4 shrink-0 text-spruce/60 group-hover:text-ochre/70 sm:h-5 sm:w-5" />
+                              <RegisterMark className="h-4 w-4 shrink-0 text-stock/45 group-hover:text-ochre sm:h-5 sm:w-5" />
                             ) : null}
                           </a>
                         </li>
@@ -468,25 +485,22 @@ export default function Home() {
             </h2>
           </div>
           <ul className="relative mt-12 border-t-2 border-spruce/25">
-            {services.map(([name, note, icon]) => (
+            {services.map(([name, icon]) => (
               <li
                 key={name}
                 className="group border-b-2 border-spruce/25 transition-colors duration-200 hover:bg-spruce hover:text-stock"
               >
-                <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-7 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8 sm:px-10">
-                  <h3 className="display flex items-center gap-4 text-[clamp(1.9rem,5.5vw,3.4rem)]">
+                <div className="mx-auto flex max-w-6xl justify-center px-5 py-7 sm:px-10">
+                  <h3 className="display flex items-center gap-4 text-center text-[clamp(1.9rem,5.5vw,3.4rem)]">
                     <ServiceIcon name={icon} />
                     {name}
                   </h3>
-                  <p className="caption shrink-0 text-xs opacity-80 sm:text-sm">
-                    {note}
-                  </p>
                 </div>
               </li>
             ))}
           </ul>
           <div className="mx-auto max-w-6xl px-5 py-14 sm:px-10">
-            <p className="max-w-2xl text-lg leading-relaxed text-spruce/80">
+            <p className="mx-auto max-w-2xl text-center text-lg leading-relaxed text-spruce/80">
               Pompa ciepła to dziś nasza główna robota, ale dom to jedna
               instalacja — elektryka, woda i wentylacja muszą do siebie pasować.
               Robimy je pod jednym adresem.
