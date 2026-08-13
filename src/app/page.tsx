@@ -82,19 +82,49 @@ const bands = [
   {
     range: "0–10 km",
     tone: "bg-spruce text-stock",
+    stamp: "bg-stock text-spruce",
+    ring: 0,
     towns: ["Świebodzice", "Szczawno-Zdrój", "Świdnica"],
   },
   {
     range: "10–20 km",
     tone: "bg-slate text-stock",
+    stamp: "bg-stock text-slate",
+    ring: 1,
     towns: ["Wałbrzych", "Jaworzyna Śląska", "Dobromierz", "Strzegom", "Żarów"],
   },
   {
     range: "20–30 km",
     tone: "bg-ochre text-spruce",
+    stamp: "bg-spruce text-ochre",
+    ring: 2,
     towns: ["Bolków", "Boguszów-Gorce", "Jedlina-Zdrój", "Marcinowice", "Kamienna Góra"],
   },
 ];
+
+const ringRadii = [20, 38, 56];
+
+function RangeRing({ active }: { active: number }) {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      aria-hidden="true"
+      className="h-14 w-14 shrink-0 sm:h-20 sm:w-20"
+      fill="none"
+      stroke="currentColor"
+    >
+      {ringRadii.map((radius, index) => (
+        <path
+          key={radius}
+          d={`M ${4 + radius} 60 A ${radius} ${radius} 0 0 0 4 ${60 - radius}`}
+          strokeWidth={index === active ? 7 : 2}
+          opacity={index === active ? 1 : 0.35}
+        />
+      ))}
+      <path d="M4,54 L4,60 L10,60 Z" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 const brands = [
   "Rotenso",
@@ -440,13 +470,18 @@ export default function Home() {
           <div className="relative mt-12">
             {bands.map((band) => (
               <div key={band.range} className={`${band.tone}`}>
-                <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 sm:flex-row sm:items-center sm:gap-10 sm:px-10">
-                  <p className="display shrink-0 text-[clamp(1.6rem,4.5vw,2.6rem)]">
-                    {band.range}
-                  </p>
-                  <p className="caption text-xs leading-relaxed sm:text-sm">
-                    {band.towns.join(" · ")}
-                  </p>
+                <div className="mx-auto flex max-w-6xl items-start gap-5 px-5 py-8 sm:items-center sm:gap-10 sm:px-10">
+                  <RangeRing active={band.ring} />
+                  <div className="flex min-w-0 flex-1 flex-col gap-3 sm:flex-row sm:items-center sm:gap-10">
+                    <p
+                      className={`display inline-flex shrink-0 self-start px-3 py-1 text-[clamp(1.6rem,4.5vw,2.6rem)] leading-none sm:self-auto sm:px-4 ${band.stamp}`}
+                    >
+                      {band.range}
+                    </p>
+                    <p className="caption text-xs leading-relaxed sm:text-sm">
+                      {band.towns.join(" · ")}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
