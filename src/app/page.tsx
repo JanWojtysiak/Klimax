@@ -94,8 +94,8 @@ export default function Home() {
           <div className="relative bg-spruce grain">
             <div className={railGrid}>
               <PlateRail letter="A" />
-              <div className="py-20 sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-x-8 sm:py-28 lg:gap-x-14">
-                <div className="sm:col-span-2 sm:row-start-1">
+              <div className="py-20 sm:py-28 lg:grid lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-x-14">
+                <div className="lg:col-span-2">
                   <p className="caption text-xs text-stock/70">Arkusz 02</p>
                   <h2 className="display mt-4 text-stock text-[clamp(2.2rem,9vw,6.5rem)] min-[340px]:text-[clamp(2.6rem,9vw,6.5rem)]">
                     Certyfikowany{" "}
@@ -104,45 +104,51 @@ export default function Home() {
                   </h2>
                 </div>
 
-                <div className="mt-7 sm:col-span-2 sm:row-start-2 lg:col-span-1 lg:col-start-1 lg:row-start-3 lg:self-end">
+                <div className="mt-7 lg:col-start-1 lg:row-start-2 lg:mt-10 lg:flex lg:flex-col">
                   <p className="max-w-[54ch] text-lg leading-relaxed text-stock/85">
                     Mamy firmowe certyfikaty montażowe i serwisowe wymienionych
                     producentów. To znaczy, że montaż nie unieważnia gwarancji
                     urządzenia.
                   </p>
-                  <p className="display mt-14 text-stock text-[clamp(1.5rem,4.4vw,3rem)] lg:mt-16">
-                    <span className="lg:block">Robert </span>
-                    Wojtysiak
-                  </p>
-                  <p className="caption mt-3 text-xs text-stock/70">Właściciel</p>
-                </div>
 
-                <Image
-                  src="/instalator.png"
-                  alt="Robert Wojtysiak przy jednostce klimatyzacji"
-                  width={899}
-                  height={1131}
-                  sizes="(min-width: 1024px) min(38vw, 26rem), (min-width: 640px) 26rem, 100vw"
-                  className="mt-10 ml-auto block h-auto w-full max-w-[22rem] sm:col-span-2 sm:row-start-3 sm:max-w-[26rem] lg:col-span-1 lg:col-start-2 lg:row-start-3 lg:mt-0 lg:w-[min(38vw,26rem)] lg:max-w-none lg:self-end"
-                />
-
-                <div className="sm:col-span-2 sm:row-start-4">
-                  <div className="rule-diamond text-stock/35">
-                    <span className="caption shrink-0 text-xs text-stock/80">
-                      09 producentów
-                    </span>
+                  <div className="mt-12 lg:mt-auto lg:pt-12">
+                    <div className="rule-diamond text-stock/35">
+                      <span className="caption shrink-0 text-xs text-stock/80">
+                        09 producentów
+                      </span>
+                    </div>
+                    <ul className="mt-8 grid grid-cols-3 border-b-2 border-stock/20">
+                      {brands.map((brand) => (
+                        <li
+                          key={brand}
+                          className="display border-t-2 border-stock/20 py-4 pr-2 text-stock text-[clamp(1rem,3.6vw,2.75rem)] sm:py-5 sm:pr-6 lg:py-8 lg:text-[clamp(1rem,2.4vw,2.25rem)]"
+                        >
+                          {brand}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="mt-8 grid grid-cols-3 border-b-2 border-stock/20">
-                    {brands.map((brand) => (
-                      <li
-                        key={brand}
-                        className="display border-t-2 border-stock/20 py-4 pr-2 text-stock text-[clamp(1rem,3.6vw,2.75rem)] sm:pr-6 sm:py-5"
-                      >
-                        {brand}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
+
+                <figure className="mt-12 flex items-end gap-6 sm:gap-10 lg:col-start-2 lg:row-start-2 lg:mt-10 lg:block lg:self-end">
+                  <Image
+                    src="/instalator.png"
+                    alt="Robert Wojtysiak przy jednostce klimatyzacji"
+                    width={899}
+                    height={1131}
+                    sizes="(min-width: 1024px) min(26vw, 20rem), 52vw"
+                    className="block h-auto w-[52%] max-w-[17rem] shrink-0 lg:w-[min(26vw,20rem)] lg:max-w-none"
+                  />
+                  <figcaption className="pb-2 lg:pb-0">
+                    <p className="display text-stock text-[clamp(1.5rem,4.4vw,3rem)] lg:mt-7">
+                      <span className="block">Robert </span>
+                      Wojtysiak
+                    </p>
+                    <p className="caption mt-3 text-xs text-stock/70">
+                      Właściciel
+                    </p>
+                  </figcaption>
+                </figure>
               </div>
             </div>
           </div>
