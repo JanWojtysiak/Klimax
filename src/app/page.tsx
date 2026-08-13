@@ -248,12 +248,14 @@ export default function Home() {
                       {brands.map((brand, index) => (
                         <li
                           key={brand}
-                          className={`display flex items-baseline gap-3 border-t-2 border-stock/20 py-4 pr-2 text-stock text-[clamp(1.6rem,7vw,3rem)] last:col-span-2 last:border-r-0 sm:gap-5 sm:py-6 sm:pr-6 lg:py-7 lg:text-[clamp(2rem,4.4vw,4rem)] ${
-                            index === brands.length - 1
-                              ? "justify-between pr-0 sm:pr-0"
-                              : index % 2 === 0
-                                ? "border-r-2 pr-4 sm:pr-8 lg:pr-10"
-                                : "pl-4 sm:pl-8 lg:pl-10"
+                          className={`display flex items-baseline gap-3 border-t-2 border-stock/20 py-4 pr-2 text-stock sm:gap-5 sm:py-6 sm:pr-6 lg:py-7 ${
+                            index === 0
+                              ? "col-span-2 justify-between text-[clamp(2rem,9vw,3.75rem)] lg:text-[clamp(2.5rem,5.6vw,5.25rem)]"
+                              : `text-[clamp(1.6rem,7vw,3rem)] lg:text-[clamp(2rem,4.4vw,4rem)] ${
+                                  index % 2 === 1
+                                    ? "border-r-2 pr-4 sm:pr-8 lg:pr-10"
+                                    : "pl-4 sm:pl-8 lg:pl-10"
+                                }`
                           }`}
                         >
                           <span className="flex items-baseline gap-3 sm:gap-5">
@@ -262,7 +264,7 @@ export default function Home() {
                             </span>
                             {brand}
                           </span>
-                          {index === brands.length - 1 ? (
+                          {index === 0 ? (
                             <RegisterMark className="h-4 w-4 shrink-0 self-center text-stock/45 sm:h-5 sm:w-5" />
                           ) : null}
                         </li>
