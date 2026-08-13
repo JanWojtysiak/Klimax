@@ -278,10 +278,10 @@ export default function Home() {
                       {brands.map((brand, index) => (
                         <li
                           key={brand}
-                          className={`display flex items-baseline gap-3 border-t-2 border-stock/20 py-4 pr-2 text-stock sm:gap-5 sm:py-6 sm:pr-6 lg:py-7 ${
+                          className={`display flex items-baseline gap-3 border-t-2 border-stock/20 pr-2 text-stock sm:gap-5 sm:pr-6 ${
                             index === 0
-                              ? "col-span-2 justify-between text-[clamp(2rem,9vw,3.75rem)] lg:text-[clamp(2.5rem,5.6vw,5.25rem)]"
-                              : `text-[clamp(1.6rem,7vw,3rem)] lg:text-[clamp(2rem,4.4vw,4rem)] ${
+                              ? "col-span-2 justify-between py-7 leading-[1.06] sm:py-9 lg:py-11 text-[clamp(2.4rem,13vw,4.5rem)] lg:text-[clamp(3rem,12vw,9.5rem)]"
+                              : `py-4 sm:py-6 lg:py-7 text-[clamp(1.6rem,7vw,3rem)] lg:text-[clamp(2rem,4.4vw,4rem)] ${
                                   index % 2 === 1
                                     ? "border-r-2 pr-4 sm:pr-8 lg:pr-10"
                                     : "pl-4 sm:pl-8 lg:pl-10"
