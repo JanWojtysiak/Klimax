@@ -16,6 +16,18 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Formularz kontaktowy
+
+Formularz wysyła `POST /api/kontakt` (`src/app/api/kontakt/route.ts`). E-mail leci przez Resend, konfiguracja w `.env.local`:
+
+```bash
+RESEND_API_KEY=re_...
+KONTAKT_TO=biuro@klimax.co.pl
+KONTAKT_FROM="Formularz Klimax <formularz@klimax.co.pl>"
+```
+
+Bez `RESEND_API_KEY` zapytanie nie idzie mailem — ląduje w logach serwera. Domenę w `KONTAKT_FROM` trzeba najpierw zweryfikować w Resend.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
