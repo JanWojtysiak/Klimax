@@ -3,13 +3,13 @@ import Image from "next/image";
 import SheetHero from "@/components/SheetHero";
 import ContactSheet from "@/components/ContactSheet";
 
-const services: [string, string][] = [
-  ["Pompy ciepła", "heatPump"],
-  ["Klimatyzacja", "ac"],
-  ["Rekuperacja", "recuperation"],
-  ["Instalacje elektryczne", "electric"],
-  ["Instalacje wod-kan", "water"],
-  ["Ogrzewanie podłogowe", "floor"],
+const services: [string, string, string][] = [
+  ["Pompy ciepła", "Dobór, montaż i serwis.", "heatPump"],
+  ["Klimatyzacja", "Montaż i przeglądy.", "ac"],
+  ["Rekuperacja", "Wentylacja z odzyskiem ciepła.", "recuperation"],
+  ["Instalacje elektryczne", "Wykonanie i modernizacja.", "electric"],
+  ["Instalacje wod-kan", "Woda i kanalizacja.", "water"],
+  ["Ogrzewanie podłogowe", "Wykonanie instalacji.", "floor"],
 ];
 
 const serviceIcons: Record<string, ReactNode> = {
@@ -485,22 +485,25 @@ export default function Home() {
             </h2>
           </div>
           <ul className="relative mt-12 border-t-2 border-spruce/25">
-            {services.map(([name, icon]) => (
+            {services.map(([name, note, icon]) => (
               <li
                 key={name}
                 className="group border-b-2 border-spruce/25 transition-colors duration-200 hover:bg-spruce hover:text-stock"
               >
-                <div className="mx-auto flex max-w-6xl justify-center px-5 py-7 sm:px-10">
-                  <h3 className="display flex items-center gap-4 text-center text-[clamp(1.9rem,5.5vw,3.4rem)]">
+                <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-7 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8 sm:px-10">
+                  <h3 className="display flex items-center gap-4 text-[clamp(1.9rem,5.5vw,3.4rem)]">
                     <ServiceIcon name={icon} />
                     {name}
                   </h3>
+                  <p className="caption shrink-0 text-xs opacity-80 sm:text-sm">
+                    {note}
+                  </p>
                 </div>
               </li>
             ))}
           </ul>
           <div className="mx-auto max-w-6xl px-5 py-14 sm:px-10">
-            <p className="mx-auto max-w-2xl text-center text-lg leading-relaxed text-spruce/80">
+            <p className="max-w-2xl text-lg leading-relaxed text-spruce/80">
               Pompa ciepła to dziś nasza główna robota, ale dom to jedna
               instalacja — elektryka, woda i wentylacja muszą do siebie pasować.
               Robimy je pod jednym adresem.
