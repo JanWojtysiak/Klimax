@@ -54,11 +54,20 @@ const serviceIcons: Record<string, ReactNode> = {
   ),
 };
 
+const serviceIconColors: Record<string, string> = {
+  heatPump: "text-vermilion",
+  ac: "text-slate",
+  recuperation: "text-spruce/70",
+  electric: "text-ochre",
+  water: "text-slate",
+  floor: "text-vermilion",
+};
+
 function ServiceIcon({ name }: { name: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-[1em] w-[1em] shrink-0 opacity-80"
+      className={`h-[1em] w-[1em] shrink-0 ${serviceIconColors[name]}`}
       fill="none"
       stroke="currentColor"
       strokeWidth="1.4"
