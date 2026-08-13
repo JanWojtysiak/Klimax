@@ -77,6 +77,6 @@ Wszystkie ruchy respektują `prefers-reduced-motion`: przedruk i wymiana płyty 
 ## Content rules
 
 - Zero wymyślonych opinii, liczby realizacji, nagród i cen. PRODUCT.md jest jedynym źródłem faktów.
-- Marki i uprawnienia występują wyłącznie jako typografia. Logotypy producentów nie są używane.
+- Nazwy marek i uprawnienia niosą typografia. Logotypy producentów występują wyłącznie jako sylwetki w jednej farbie (maska alfa + `currentColor`), nigdy w firmowych kolorach — lista marek linkuje do stron producentów, a najazd odwraca płytę (papier pod spodem, świerkowa farba na wierzchu).
 - Mapa pokazuje wyłącznie terytorium (pasma odległości), nigdy piny konkretnych realizacji.
 - Materiały zastępcze muszą być widocznie oznaczone jako niedostarczone.
