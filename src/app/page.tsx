@@ -98,7 +98,13 @@ const bands = [
     tone: "bg-ochre text-spruce",
     stamp: "bg-spruce text-ochre",
     ring: 2,
-    towns: ["Bolków", "Boguszów-Gorce", "Jedlina-Zdrój", "Marcinowice", "Kamienna Góra"],
+    towns: [
+      "Bolków",
+      "Boguszów-Gorce",
+      "Jedlina-Zdrój",
+      "Marcinowice",
+      "Kamienna Góra",
+    ],
   },
 ];
 
@@ -126,16 +132,53 @@ function RangeRing({ active }: { active: number }) {
   );
 }
 
-const brands = [
-  "Rotenso",
-  "Panasonic",
-  "Atlantic",
-  "Gree",
-  "Kaisai",
-  "Midea",
-  "Fuji",
-  "Daikin",
-  "Vaillant",
+const brands: { name: string; href: string; logo: string; mark?: string }[] = [
+  {
+    name: "Rotenso",
+    href: "https://rotenso.com/pl/",
+    logo: "/brand/logos/rotenso-word.png",
+    mark: "/brand/logos/rotenso-mark.png",
+  },
+  {
+    name: "Panasonic",
+    href: "https://www.aircon.panasonic.eu/PL_pl/",
+    logo: "/brand/logos/panasonic.png",
+  },
+  {
+    name: "Atlantic",
+    href: "https://groupe-atlantic.pl/",
+    logo: "/brand/logos/atlantic.png",
+  },
+  {
+    name: "Gree",
+    href: "https://gree.pl/",
+    logo: "/brand/logos/gree.png",
+  },
+  {
+    name: "Kaisai",
+    href: "https://kaisai.com/pl/",
+    logo: "/brand/logos/kaisai.png",
+  },
+  {
+    name: "Midea",
+    href: "https://www.midea.com/pl",
+    logo: "/brand/logos/midea.png",
+  },
+  {
+    name: "Fuji",
+    href: "https://fujielectric.eu/",
+    logo: "/brand/logos/fuji.png",
+  },
+  {
+    name: "Daikin",
+    href: "https://www.daikin.pl/",
+    logo: "/brand/logos/daikin.png",
+  },
+  {
+    name: "Vaillant",
+    href: "https://www.vaillant.pl/",
+    logo: "/brand/logos/vaillant.png",
+  },
 ];
 
 const permits = [
@@ -184,7 +227,11 @@ const permits = [
   {
     family: "F-Gaz",
     stamp: (
-      <svg viewBox="0 0 56 56" aria-hidden="true" className="h-[0.62em] w-[0.62em]">
+      <svg
+        viewBox="0 0 56 56"
+        aria-hidden="true"
+        className="h-[0.62em] w-[0.62em]"
+      >
         <path
           fill="currentColor"
           d="M25,2 L31,2 L31,54 L25,54 Z M2,15 L54,15 L54,21 L2,21 Z M2,35 L54,35 L54,41 L2,41 Z"
@@ -255,8 +302,7 @@ export default function Home() {
                 <div className="lg:col-span-2">
                   <p className="caption text-xs text-stock/70">Arkusz 02</p>
                   <h2 className="display mt-4 text-stock text-[clamp(2.2rem,9vw,6.5rem)] min-[340px]:text-[clamp(2.6rem,9vw,6.5rem)]">
-                    Certyfikowany{" "}
-                    <br />
+                    Certyfikowany <br />
                     instalator
                   </h2>
                 </div>
@@ -277,26 +323,77 @@ export default function Home() {
                     <ul className="mt-8 grid grid-cols-2 border-b-2 border-stock/20">
                       {brands.map((brand, index) => (
                         <li
-                          key={brand}
-                          className={`display flex items-baseline gap-3 border-t-2 border-stock/20 py-4 pr-2 text-stock sm:gap-5 sm:py-6 sm:pr-6 lg:py-7 ${
+                          key={brand.name}
+                          className={`display border-t-2 border-stock/20 text-stock ${
                             index === 0
-                              ? "col-span-2 justify-between text-[clamp(2rem,9vw,3.75rem)] lg:text-[clamp(2.5rem,5.6vw,5.25rem)]"
-                              : `text-[clamp(1.6rem,7vw,3rem)] lg:text-[clamp(2rem,4.4vw,4rem)] ${
-                                  index % 2 === 1
-                                    ? "border-r-2 pr-4 sm:pr-8 lg:pr-10"
-                                    : "pl-4 sm:pl-8 lg:pl-10"
-                                }`
+                              ? "col-span-2"
+                              : index % 2 === 1
+                                ? "border-r-2"
+                                : ""
                           }`}
                         >
-                          <span className="flex items-baseline gap-3 sm:gap-5">
-                            <span className="caption shrink-0 text-[0.6rem] text-stock/45 sm:text-[0.7rem]">
-                              {String(index + 1).padStart(2, "0")}
+                          <a
+                            href={brand.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className={`group flex items-center justify-between gap-4 pr-2 transition-colors duration-200 focus-visible:outline-none sm:gap-6 sm:pr-6 ${
+                              index === 0
+                                ? "py-7 leading-[1.06] sm:py-9 lg:py-11 text-[clamp(2.4rem,13vw,4.5rem)] lg:text-[clamp(3rem,12vw,9.5rem)]"
+                                : `py-4 sm:py-6 lg:py-7 text-[clamp(1.6rem,7vw,3rem)] lg:text-[clamp(2rem,4.4vw,3.7rem)] ${
+                                    index % 2 === 1
+                                      ? "pr-4 hover:bg-stock focus-visible:bg-stock sm:pr-8 lg:pr-10"
+                                      : "pl-4 hover:bg-ochre focus-visible:bg-ochre sm:pl-8 lg:pl-10"
+                                  }`
+                            }`}
+                          >
+                            <span className="flex min-w-0 flex-1 items-center gap-3 sm:gap-5">
+                              <span
+                                className={`caption shrink-0 text-[0.6rem] sm:text-[0.7rem] ${
+                                  index === 0
+                                    ? "text-stock/45 group-hover:text-ochre"
+                                    : "text-stock/45 group-hover:text-spruce/60"
+                                }`}
+                              >
+                                {String(index + 1).padStart(2, "0")}
+                              </span>
+                              <span
+                                className={`relative ${
+                                  index === 0
+                                    ? "h-[0.62em] w-[86%]"
+                                    : "h-[0.7em] w-full"
+                                }`}
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  className={`brand-logo absolute inset-0 transition-colors duration-200 ${
+                                    index === 0
+                                      ? "text-stock group-hover:text-ochre"
+                                      : index % 2 === 1
+                                        ? "text-stock group-hover:text-spruce"
+                                        : "text-ochre group-hover:text-spruce"
+                                  }`}
+                                  style={{
+                                    maskImage: `url(${brand.logo})`,
+                                    WebkitMaskImage: `url(${brand.logo})`,
+                                  }}
+                                />
+                                {brand.mark ? (
+                                  <span
+                                    aria-hidden="true"
+                                    className="brand-logo absolute inset-0 text-ochre transition-colors duration-200 group-hover:text-stock"
+                                    style={{
+                                      maskImage: `url(${brand.mark})`,
+                                      WebkitMaskImage: `url(${brand.mark})`,
+                                    }}
+                                  />
+                                ) : null}
+                              </span>
+                              <span className="sr-only">{brand.name}</span>
                             </span>
-                            {brand}
-                          </span>
-                          {index === 0 ? (
-                            <RegisterMark className="h-4 w-4 shrink-0 self-center text-stock/45 sm:h-5 sm:w-5" />
-                          ) : null}
+                            {index === 0 ? (
+                              <RegisterMark className="h-4 w-4 shrink-0 text-stock/45 group-hover:text-ochre sm:h-5 sm:w-5" />
+                            ) : null}
+                          </a>
                         </li>
                       ))}
                     </ul>
@@ -331,8 +428,7 @@ export default function Home() {
               <PlateRail letter="B" closing />
               <div className="py-20 sm:py-28">
                 <h2 className="display text-stock text-[clamp(2.2rem,9vw,6.5rem)] min-[340px]:text-[clamp(2.6rem,9vw,6.5rem)]">
-                  Uprawnienia{" "}
-                  <br />
+                  Uprawnienia <br />
                   zawodowe
                 </h2>
                 <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-stock/85">
@@ -439,15 +535,17 @@ export default function Home() {
                 <li
                   key={index}
                   className={`flex-1 ${
-                    (index + 1) % 5 === 0 ? "h-12 bg-stock/70" : "h-6 bg-stock/30"
+                    (index + 1) % 5 === 0
+                      ? "h-12 bg-stock/70"
+                      : "h-6 bg-stock/30"
                   }`}
                 />
               ))}
             </ul>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-stock/85 sm:text-xl">
               Ćwierć wieku przy różnorodnych instalacjach w firmach i u klientów
-              prywatnych. Przez ten czas zmieniły się kotły, przepisy i urządzenia
-              — a jakość została ta sama.
+              prywatnych. Przez ten czas zmieniły się kotły, przepisy i
+              urządzenia — a jakość została ta sama.
             </p>
           </div>
         </section>
@@ -456,14 +554,13 @@ export default function Home() {
           <div className="relative mx-auto max-w-6xl px-5 pt-20 sm:px-10 sm:pt-28">
             <p className="caption text-xs text-spruce/70">Arkusz 05</p>
             <h2 className="display mt-4 text-[clamp(2.6rem,9vw,6.5rem)]">
-              Jak daleko{" "}
-              <br />
+              Jak daleko <br />
               dojeżdżamy
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-spruce/80">
               Pracujemy w promieniu około 30 kilometrów od Świebodzic. Pasma są
-              orientacyjne — jeśli Twojej miejscowości nie ma na liście, zadzwoń,
-              najczęściej i tak dojedziemy.
+              orientacyjne — jeśli Twojej miejscowości nie ma na liście,
+              zadzwoń, najczęściej i tak dojedziemy.
             </p>
           </div>
 
