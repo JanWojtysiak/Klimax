@@ -1,0 +1,9 @@
+services:
+    klimax:
+      build: .
+      volumes:  
+        - ./:usr/src/app
+        - node_modules:/usr/src/app/node_modules
+      container_name: klimax
+    volumes:
+      node_modules:
