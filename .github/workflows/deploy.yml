@@ -1,0 +1,29 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency: deploy
+
+jobs:
+  deploy:
+    if: vars.SSH_HOST != ''
+    runs-on: ubuntu-latest
+    env:
+      SSH: ssh -p ${{ vars.SSH_PORT }} root@${{ vars.SSH_HOST }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: docker build -t klimax .
+
+      - run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p ${{ vars.SSH_PORT }} ${{ vars.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - run: |
+          $SSH "mkdir -p klimax && cat > klimax/compose.prod.yaml" < compose.prod.yaml
+          docker save klimax | gzip | $SSH "gunzip | docker load && cd klimax && docker compose -f compose.prod.yaml up -d --no-build && docker image prune -f"

@@ -64,7 +64,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 Mikrus nie ma własnego publicznego IPv4, więc ruch idzie przez tunel Cloudflare: kontener `cloudflared` sam łączy się z Cloudflare, HTTPS i przekierowanie z `www` obsługuje Cloudflare i Next.js. Na serwerze nie trzeba otwierać żadnych portów.
 
-Obraz budujemy lokalnie, bo `next build` nie mieści się w 1 GB RAM.
+Obraz buduje GitHub Actions (`.github/workflows/deploy.yml`), bo `next build` nie mieści się w 1 GB RAM. Każdy push na `main` buduje stronę i wysyła ją na serwer.
+
+`PORT` i `srvXX` poniżej są w mailu powitalnym od Mikrusa. Polecenia uruchamiaj w Git Bash.
 
 ### Jednorazowo
 
@@ -72,17 +74,31 @@ Obraz budujemy lokalnie, bo `next build` nie mieści się w 1 GB RAM.
 2. W Cloudflare: Zero Trust → Networks → Tunnels → Create tunnel → Cloudflared. Skopiuj token.
 3. W tunelu dodaj dwa Public hostnames: `klimax.co.pl` i `www.klimax.co.pl`, oba typ `HTTP`, URL `klimax:3000`.
 4. Na serwerze (Ubuntu 22.04 lub nowsze) zainstaluj Dockera: `curl -s https://raw.githubusercontent.com/unkn0w/noobs/main/scripts/chce_dockera.sh | bash`.
-5. Na serwerze utwórz katalog i wgraj konfigurację (w `.env` ustaw `TUNNEL_TOKEN`, `ADMIN_PASSWORD`, `ADMIN_SECRET`, `RESEND_API_KEY`):
+5. Wgraj `.env` na serwer (ustaw w nim `TUNNEL_TOKEN`, `ADMIN_PASSWORD`, `ADMIN_SECRET`, `RESEND_API_KEY`):
 
 ```bash
 ssh -p PORT root@srvXX.mikr.us "mkdir -p klimax"
-scp -P PORT compose.prod.yaml .env root@srvXX.mikr.us:klimax/
+scp -P PORT .env root@srvXX.mikr.us:klimax/
 ```
 
-### Każde wdrożenie (Git Bash)
+6. Utwórz klucz SSH dla GitHuba i dodaj go na serwer:
+
+```bash
+ssh-keygen -t ed25519 -N "" -f klimax_deploy
+ssh -p PORT root@srvXX.mikr.us "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys" < klimax_deploy.pub
+```
+
+7. Na GitHubie: Settings → Secrets and variables → Actions:
+   - zakładka Secrets: `SSH_KEY` = zawartość pliku `klimax_deploy`,
+   - zakładka Variables: `SSH_HOST` = `srvXX.mikr.us`, `SSH_PORT` = `PORT`.
+
+   Potem usuń pliki `klimax_deploy` i `klimax_deploy.pub` z komputera.
+8. Actions → Deploy → Run workflow, żeby wdrożyć pierwszy raz.
+
+Dopóki `SSH_HOST` nie jest ustawione, workflow się nie uruchamia.
+
+### Ręczne wdrożenie z komputera
 
 ```bash
 docker build -t klimax . && docker save klimax | gzip | ssh -p PORT root@srvXX.mikr.us "gunzip | docker load && cd klimax && docker compose -f compose.prod.yaml up -d --no-build && docker image prune -f"
 ```
-
-`PORT` i `srvXX` są w mailu powitalnym od Mikrusa.
