@@ -31,6 +31,7 @@ export function Hero({ texts }: { texts: Texts }) {
     if (!section) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const narrow = window.matchMedia("(max-width: 1023px)");
     let frame = 0;
 
     const update = () => {
@@ -40,7 +41,7 @@ export function Hero({ texts }: { texts: Texts }) {
       const progress = total > 0 ? Math.min(Math.max(-rect.top / total, 0), 1) : 0;
       setSummer(progress > 0.45);
       section.style.setProperty("--progress", String(progress));
-      section.style.setProperty("--sy", reduced ? "0" : String(progress));
+      section.style.setProperty("--sy", reduced || narrow.matches ? "0" : String(progress));
     };
 
     const onScroll = () => {
@@ -179,7 +180,7 @@ export function Hero({ texts }: { texts: Texts }) {
                   onClick={() => go(-1)}
                   aria-label="Poprzednia usługa"
                   aria-controls="service"
-                  className="ink-btn h-12 w-12 border-2 border-r-0 border-stock/70 hover:bg-stock hover:text-spruce focus-visible:outline-stock"
+                  className="ink-btn h-12 w-12 border-2 border-r-0 border-stock/70 max-lg:bg-spruce hover:bg-stock hover:text-spruce focus-visible:outline-stock"
                 >
                   <svg viewBox="0 0 12 12" className="h-3.5 w-3.5" aria-hidden="true">
                     <path d="M9,0 L1,6 L9,12 Z" fill="currentColor" />
@@ -190,7 +191,7 @@ export function Hero({ texts }: { texts: Texts }) {
                   onClick={() => go(1)}
                   aria-label="Następna usługa"
                   aria-controls="service"
-                  className="ink-btn h-12 w-12 border-2 border-stock/70 hover:bg-stock hover:text-spruce focus-visible:outline-stock"
+                  className="ink-btn h-12 w-12 border-2 border-stock/70 max-lg:bg-spruce hover:bg-stock hover:text-spruce focus-visible:outline-stock"
                 >
                   <svg viewBox="0 0 12 12" className="h-3.5 w-3.5" aria-hidden="true">
                     <path d="M3,0 L11,6 L3,12 Z" fill="currentColor" />
@@ -199,7 +200,7 @@ export function Hero({ texts }: { texts: Texts }) {
               </div>
               <p
                 key={`count-${index}`}
-                className={`caption text-xs text-stock/80 sm:text-sm ${anim}`}
+                className={`caption text-xs text-stock/80 max-lg:bg-spruce max-lg:px-3 max-lg:py-2 max-lg:text-stock sm:text-sm ${anim}`}
               >
                 Usługa {String(index + 1).padStart(2, "0")} /{" "}
                 {String(plates.length).padStart(2, "0")}
