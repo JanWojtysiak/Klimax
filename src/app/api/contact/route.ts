@@ -36,7 +36,27 @@ const schema = z.object(
   "Nieprawidłowe dane.",
 );
 
+const hits = new Map<string, { count: number; until: number }>();
+
+const limited = (ip: string) => {
+  const now = Date.now();
+  for (const [key, value] of hits) if (value.until <= now) hits.delete(key);
+  const entry = hits.get(ip) ?? { count: 0, until: now + 60 * 60 * 1000 };
+  entry.count++;
+  hits.set(ip, entry);
+  return entry.count > 5;
+};
+
 export async function POST(request: Request) {
+  const ip = (request.headers.get("x-forwarded-for") ?? "").split(",").pop()!.trim();
+
+  if (limited(ip)) {
+    return Response.json(
+      { error: "Za dużo zapytań. Spróbuj później lub zadzwoń: +48 601 573 887." },
+      { status: 429 },
+    );
+  }
+
   const parsed = schema.safeParse(await request.json().catch(() => null));
 
   if (!parsed.success) {
