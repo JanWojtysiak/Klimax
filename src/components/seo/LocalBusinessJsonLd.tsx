@@ -18,6 +18,8 @@ export function LocalBusinessJsonLd() {
     founder: { "@type": "Person", name: site.owner },
     address: {
       "@type": "PostalAddress",
+      streetAddress: site.street,
+      postalCode: site.postalCode,
       addressLocality: site.city,
       addressRegion: site.region,
       addressCountry: site.country,

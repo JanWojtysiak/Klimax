@@ -32,6 +32,12 @@ export function ContactSection({ texts }: { texts: Texts }) {
             </div>
 
             <div className="mt-10 border-t-2 border-stock/25 pt-6">
+              <p className="caption text-xs text-stock/70">Adres</p>
+              <address className="mt-2 mb-6 text-base not-italic text-stock/85">
+                {site.name} {site.owner}
+                <br />
+                {site.street}, {site.postalCode} {site.city}
+              </address>
               <p className="caption text-xs text-stock/70">Obszar</p>
               <p className="mt-2 text-base text-stock/85">
                 {site.city} i okolice w promieniu około {site.radiusKm} km.

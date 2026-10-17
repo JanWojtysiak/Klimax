@@ -8,7 +8,7 @@ export function Footer() {
           {site.name} · {site.owner}
         </p>
         <p className="text-sm text-spruce/75">
-          {site.city} ·{" "}
+          {site.street}, {site.postalCode} {site.city} ·{" "}
           <a href={site.phoneHref} className="underline underline-offset-4">
             {site.phone}
           </a>{" "}
