@@ -2,6 +2,7 @@ import type { Texts } from "@/lib/texts";
 import Image from "next/image";
 import { PlateRail, railGrid } from "@/components/ui/PlateRail";
 import { BrandList } from "./BrandList";
+import { MascotHug } from "./MascotHug";
 
 export function InstallerPlate({ texts }: { texts: Texts }) {
   return (
@@ -20,7 +21,8 @@ export function InstallerPlate({ texts }: { texts: Texts }) {
               {texts.installerText}
             </p>
 
-            <div className="order-last mt-12 lg:order-none lg:mt-12">
+            <div className="relative order-last mt-12 max-md:mt-24 lg:order-none lg:mt-12">
+              <MascotHug />
               <BrandList />
             </div>
           </div>
