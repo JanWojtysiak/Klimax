@@ -30,20 +30,11 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: site.title,
     description: site.description,
-    images: [
-      {
-        url: "/instalator.png",
-        width: 899,
-        height: 1131,
-        alt: `${site.owner} przy jednostce klimatyzacji`,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: site.title,
     description: site.description,
-    images: ["/instalator.png"],
   },
   robots: { index: true, follow: true },
 };

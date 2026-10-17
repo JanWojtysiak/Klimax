@@ -11,7 +11,7 @@ export const site = {
   radiusKm: 30,
   title: "Klimax — pompy ciepła, klimatyzacja i instalacje | Świebodzice",
   description:
-    "Klimax Robert Wojtysiak — pompy ciepła, klimatyzacja, rekuperacja, instalacje elektryczne i wod-kan. 25 lat doświadczenia, uprawnienia SEP 1, 2, 3 i F-Gaz. Świebodzice i okolice w promieniu około 30 km.",
+    "Pompy ciepła, klimatyzacja, rekuperacja, elektryka i wod-kan. 25 lat doświadczenia, SEP i F-Gaz. Świebodzice, Świdnica, Wałbrzych i okolice do 30 km.",
   keywords: [
     "pompy ciepła Świebodzice",
     "klimatyzacja Świdnica",

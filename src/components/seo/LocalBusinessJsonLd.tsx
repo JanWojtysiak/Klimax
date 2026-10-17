@@ -1,3 +1,5 @@
+import { brands } from "@/data/brands";
+import { distanceBands } from "@/data/service-area";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
 
@@ -9,6 +11,7 @@ export function LocalBusinessJsonLd() {
     name: `${site.name} ${site.owner}`,
     url: site.url,
     image: `${site.url}/instalator.png`,
+    logo: `${site.url}/icon.png`,
     description: site.description,
     telephone: site.phone,
     email: site.email,
@@ -19,11 +22,11 @@ export function LocalBusinessJsonLd() {
       addressRegion: site.region,
       addressCountry: site.country,
     },
-    areaServed: {
-      "@type": "GeoCircle",
-      geoMidpoint: { "@type": "GeoCoordinates", latitude: 50.8586, longitude: 16.3203 },
-      geoRadius: site.radiusKm * 1000,
-    },
+    geo: { "@type": "GeoCoordinates", latitude: 50.8586, longitude: 16.3203 },
+    areaServed: distanceBands.flatMap((band) =>
+      band.towns.map((town) => ({ "@type": "City", name: town })),
+    ),
+    knowsAbout: [...services.map((service) => service.name), ...brands.map((brand) => brand.name)],
     makesOffer: services.map((service) => ({
       "@type": "Offer",
       itemOffered: { "@type": "Service", name: service.name },
