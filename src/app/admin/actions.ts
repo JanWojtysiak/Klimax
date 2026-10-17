@@ -79,11 +79,20 @@ export async function upload(formData: FormData) {
   revalidatePath("/admin");
 }
 
-export async function remove(formData: FormData) {
+export async function remove(name: string) {
   if (!(await isAdmin())) return;
-  const file = path.basename(String(formData.get("file")));
+  const file = path.basename(String(name));
   await savePhotos((await getPhotos()).filter((photo) => photo.file !== file));
   await unlink(path.join(uploadDir, file)).catch(() => null);
+  revalidatePath("/");
+  revalidatePath("/admin");
+}
+
+export async function reorder(files: string[]) {
+  if (!(await isAdmin())) return;
+  const rank = (file: string) => files.indexOf(file);
+  const photos = await getPhotos();
+  await savePhotos(photos.sort((a, b) => rank(a.file) - rank(b.file)));
   revalidatePath("/");
   revalidatePath("/admin");
 }

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Link from "next/link";
 import { getPhotos } from "@/lib/photos";
 import { defaultTexts, getTexts } from "@/lib/texts";
-import { isAdmin, login, logout, remove, updateTexts, upload } from "./actions";
+import { isAdmin, login, logout, updateTexts, upload } from "./actions";
+import { PhotoList } from "./PhotoList";
 import { SubmitButton } from "./SubmitButton";
 
 export const metadata: Metadata = {
@@ -61,11 +62,23 @@ export default async function AdminPage() {
           <p className="caption text-xs text-stock/70">Klimax</p>
           <h1 className="display mt-3 text-6xl sm:text-7xl">Zdjęcia</h1>
         </div>
-        <form action={logout}>
-          <button type="submit" className="caption text-xs text-stock/70 underline">
-            Wyloguj
-          </button>
-        </form>
+        <div className="flex flex-wrap items-center justify-end gap-x-6 gap-y-3">
+          <Link href="/" className="ink-btn bg-stock px-5 py-2 text-lg text-spruce">
+            Strona główna
+          </Link>
+          <a
+            href="/#gallery"
+            target="_blank"
+            className="caption text-xs text-stock/70 underline"
+          >
+            Podgląd galerii ↗
+          </a>
+          <form action={logout}>
+            <button type="submit" className="caption text-xs text-stock/70 underline">
+              Wyloguj
+            </button>
+          </form>
+        </div>
       </div>
 
       <form
@@ -92,37 +105,7 @@ export default async function AdminPage() {
         </SubmitButton>
       </form>
 
-      {photos.length === 0 ? (
-        <p className="mt-10 text-stock/70">Nie ma jeszcze żadnych zdjęć.</p>
-      ) : (
-        <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {photos.map((photo) => (
-            <li key={photo.file} className="bg-stock p-2 text-spruce">
-              <div className="relative aspect-square">
-                <Image
-                  src={`/photos/${photo.file}`}
-                  alt={photo.alt}
-                  fill
-                  sizes="(min-width: 1024px) 18rem, 45vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex items-start justify-between gap-2 pt-2">
-                <p className="text-sm leading-snug">{photo.alt}</p>
-                <form action={remove}>
-                  <input type="hidden" name="file" value={photo.file} />
-                  <SubmitButton
-                    pendingText="…"
-                    className="caption shrink-0 text-xs text-vermilion"
-                  >
-                    Usuń
-                  </SubmitButton>
-                </form>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
+      <PhotoList key={photos.map((photo) => photo.file).join()} photos={photos} />
       <h2 className="display mt-20 text-5xl sm:text-6xl">Teksty</h2>
       <p className="mt-3 text-stock/70">
         Enter łamie linię. Puste pole przywraca tekst domyślny.
