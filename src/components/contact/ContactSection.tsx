@@ -1,8 +1,9 @@
+import Link from "next/link";
 import type { Texts } from "@/lib/texts";
 import { site } from "@/data/site";
 import { ContactForm } from "./ContactForm";
 
-export function ContactSection({ texts }: { texts: Texts }) {
+export function ContactSection({ texts, faqLink = true }: { texts: Texts; faqLink?: boolean }) {
   return (
     <section id="contact" className="relative bg-spruce grain">
       <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-10 sm:py-28">
@@ -43,6 +44,18 @@ export function ContactSection({ texts }: { texts: Texts }) {
                 {site.city} i okolice w promieniu około {site.radiusKm} km.
               </p>
             </div>
+
+            {faqLink ? (
+              <div className="mt-10 border-t-2 border-stock/25 pt-6">
+                <p className="caption text-xs text-stock/70">Masz pytanie?</p>
+                <Link
+                  href="/pytania"
+                  className="ink-btn mt-4 border-2 border-stock px-6 py-3 text-lg text-stock hover:bg-stock hover:text-spruce"
+                >
+                  Często zadawane pytania →
+                </Link>
+              </div>
+            ) : null}
           </div>
 
           <div aria-live="polite">
