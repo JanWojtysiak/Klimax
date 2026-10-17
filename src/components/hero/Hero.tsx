@@ -66,12 +66,12 @@ export function Hero({ texts }: { texts: Texts }) {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[160vh]"
+      className="relative md:h-[160vh]"
       style={{ ["--progress" as string]: 0, ["--sy" as string]: 0 }}
     >
       <div
         data-dir={dir}
-        className="sticky top-0 h-[calc(100svh-60px)] overflow-hidden md:h-screen"
+        className="relative h-[calc(100svh-60px)] overflow-hidden md:sticky md:top-0 md:h-screen"
       >
         <HeroScene
           summer={summer}
@@ -107,7 +107,7 @@ export function Hero({ texts }: { texts: Texts }) {
             </div>
           </div>
 
-          <div className="pointer-events-none absolute z-10 hidden bg-spruce px-3 py-3 text-stock [@media(max-height:640px)]:hidden sm:right-8 sm:top-16 sm:block sm:w-64">
+          <div className="pointer-events-none absolute z-10 hidden bg-spruce px-3 py-3 text-stock [@media(max-height:640px)]:hidden sm:right-8 sm:top-16 sm:w-64 md:block">
             <div
               className="flex items-center justify-between text-[0.62rem] caption sm:text-[0.68rem]"
               aria-label={`Aktualny sezon: ${summer ? "lato" : "zima"}`}
