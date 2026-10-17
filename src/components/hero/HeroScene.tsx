@@ -30,6 +30,7 @@ const sceneStyles = `
   .scene { transform: translate(340px, -88px) }
   @media (min-width: 640px) { .scene { transform: translate(190px, -60px) } }
   @media (min-width: 1024px) { .scene { transform: none } }
+  @media (max-width: 1023px) { .cloud-left { transform: translateX(400px) } }
 `;
 
 type HeroSceneProps = {
@@ -60,8 +61,10 @@ export function HeroScene({
 
           <g style={{ transform: "translateY(calc(var(--sy) * -22px))" }}>
             <g className="plane plane-cloud">
-              <ellipse cx="250" cy="180" rx="130" ry="26" />
-              <ellipse cx="330" cy="152" rx="86" ry="22" />
+              <g className="cloud-left">
+                <ellipse cx="250" cy="180" rx="130" ry="26" />
+                <ellipse cx="330" cy="152" rx="86" ry="22" />
+              </g>
               <ellipse cx="900" cy="120" rx="150" ry="22" />
               <ellipse cx="980" cy="96" rx="92" ry="18" />
             </g>
