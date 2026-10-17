@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { site } from "@/data/site";
 import { getTexts } from "@/lib/texts";
 
-const title = `Często zadawane pytania: pompy ciepła | ${site.name} ${site.city}`;
+const title = `Często zadawane pytania: pompy ciepła | ${site.name} ${site.owner}`;
 const description =
   "Jaką pompę ciepła wybrać, ile zużywa prądu, ile trwa montaż i od czego zależy cena. Klimax Robert Wojtysiak, Świebodzice i okolice.";
 
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pl_PL",
-    siteName: site.name,
+    siteName: `${site.name} ${site.owner}`,
     url: "/pytania",
     title,
     description,

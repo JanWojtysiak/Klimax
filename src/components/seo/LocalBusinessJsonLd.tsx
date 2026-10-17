@@ -4,8 +4,7 @@ import { services } from "@/data/services";
 import { site } from "@/data/site";
 
 export function LocalBusinessJsonLd() {
-  const data = {
-    "@context": "https://schema.org",
+  const business = {
     "@type": "HVACBusiness",
     "@id": `${site.url}/#business`,
     name: `${site.name} ${site.owner}`,
@@ -33,6 +32,19 @@ export function LocalBusinessJsonLd() {
       "@type": "Offer",
       itemOffered: { "@type": "Service", name: service.name },
     })),
+  };
+  const data = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${site.url}/#website`,
+        name: `${site.name} ${site.owner}`,
+        alternateName: site.name,
+        url: site.url,
+      },
+      business,
+    ],
   };
 
   return (

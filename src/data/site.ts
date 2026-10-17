@@ -11,7 +11,7 @@ export const site = {
   region: "dolnośląskie",
   country: "PL",
   radiusKm: 30,
-  title: "Klimax, pompy ciepła, klimatyzacja i instalacje | Świebodzice",
+  title: "Pompy ciepła i klimatyzacja Świebodzice | Klimax Robert Wojtysiak",
   description:
     "Pompy ciepła, klimatyzacja, rekuperacja, elektryka i wod-kan. 25 lat doświadczenia, SEP i F-Gaz. Świebodzice, Świdnica, Wałbrzych i okolice do 30 km.",
   keywords: [
