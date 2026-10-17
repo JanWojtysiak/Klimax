@@ -1,10 +1,11 @@
 "use server";
 
 import { createHmac, randomUUID, timingSafeEqual } from "node:crypto";
-import { mkdir, unlink, writeFile } from "node:fs/promises";
+import { mkdir, unlink } from "node:fs/promises";
 import path from "node:path";
 import { cookies, headers } from "next/headers";
 import { revalidatePath } from "next/cache";
+import sharp from "sharp";
 import { getPhotos, savePhotos, uploadDir } from "@/lib/photos";
 import { defaultTexts, saveTexts } from "@/lib/texts";
 
@@ -69,8 +70,12 @@ export async function upload(formData: FormData) {
 
   for (const file of formData.getAll("photos")) {
     if (!(file instanceof File) || !extensions[file.type]) continue;
-    const name = `${Date.now()}-${randomUUID().slice(0, 8)}${extensions[file.type]}`;
-    await writeFile(path.join(uploadDir, name), Buffer.from(await file.arrayBuffer()));
+    const name = `${Date.now()}-${randomUUID().slice(0, 8)}.webp`;
+    await sharp(Buffer.from(await file.arrayBuffer()))
+      .rotate()
+      .resize(2560, 2560, { fit: "inside", withoutEnlargement: true })
+      .webp({ quality: 82 })
+      .toFile(path.join(uploadDir, name));
     added.push({ file: name, alt: alt || "Realizacja Klimax" });
   }
 
