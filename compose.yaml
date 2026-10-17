@@ -2,9 +2,9 @@ services:
   klimax:
     build: .
     container_name: klimax
-    volumes:
-      - ./:/usr/src/app
-      - node_modules:/usr/src/app/node_modules
-
-volumes:
-  node_modules:
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    env_file:
+      - path: .env
+        required: false
