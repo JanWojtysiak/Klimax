@@ -3,7 +3,6 @@ import { ContactSection } from "@/components/contact/ContactSection";
 import { Hero } from "@/components/hero/Hero";
 import { Gallery } from "@/components/gallery/Gallery";
 import { Footer } from "@/components/layout/Footer";
-import { SkipLink } from "@/components/layout/SkipLink";
 import { Certifications } from "@/components/sections/Certifications";
 import { Experience } from "@/components/sections/Experience";
 import { ServiceArea } from "@/components/sections/ServiceArea";
@@ -18,7 +17,6 @@ export default async function HomePage() {
   return (
     <>
       <LocalBusinessJsonLd />
-      <SkipLink />
 
       <main className="flex-1">
         <Hero texts={texts} />
