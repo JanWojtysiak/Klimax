@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="bg-stock text-spruce">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-10">
         <p className="caption text-xs">
-          {site.name} · {site.owner}
+          {site.name} · {site.owner} · NIP {site.nip}
         </p>
         <p className="text-sm text-spruce/75">
           {site.street}, {site.postalCode} {site.city} ·{" "}

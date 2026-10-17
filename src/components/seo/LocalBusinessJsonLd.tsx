@@ -14,6 +14,7 @@ export function LocalBusinessJsonLd() {
     description: site.description,
     telephone: site.phone,
     email: site.email,
+    taxID: site.nip,
     founder: { "@type": "Person", name: site.owner },
     address: {
       "@type": "PostalAddress",

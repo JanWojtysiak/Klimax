@@ -5,6 +5,7 @@ export const site = {
   phone: "+48 601 573 887",
   phoneHref: "tel:+48601573887",
   email: "biuro@klimax.co.pl",
+  nip: "8841361999",
   street: "ul. Piasta 32/5",
   postalCode: "58-160",
   city: "Świebodzice",
