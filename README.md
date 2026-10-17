@@ -60,15 +60,29 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## Produkcja (VPS)
+## Produkcja (Mikrus + Cloudflare Tunnel)
 
-1. Ustaw rekordy DNS `A` dla domeny i `www` na IP serwera.
-2. Otwórz porty 80 i 443 na serwerze.
-3. Utwórz `.env` na podstawie `.env.example` i ustaw `DOMAIN`, `ADMIN_PASSWORD`, `ADMIN_SECRET`.
-4. Uruchom:
+Mikrus nie ma własnego publicznego IPv4, więc ruch idzie przez tunel Cloudflare: kontener `cloudflared` sam łączy się z Cloudflare, HTTPS i przekierowanie z `www` obsługuje Cloudflare i Next.js. Na serwerze nie trzeba otwierać żadnych portów.
+
+Obraz budujemy lokalnie, bo `next build` nie mieści się w 1 GB RAM.
+
+### Jednorazowo
+
+1. Dodaj domenę do Cloudflare (plan Free) i zmień serwery DNS u rejestratora na te podane przez Cloudflare. Sprawdź, czy Cloudflare przeniósł rekordy poczty (`MX`, `TXT`).
+2. W Cloudflare: Zero Trust → Networks → Tunnels → Create tunnel → Cloudflared. Skopiuj token.
+3. W tunelu dodaj dwa Public hostnames: `klimax.co.pl` i `www.klimax.co.pl`, oba typ `HTTP`, URL `klimax:3000`.
+4. Na serwerze (Ubuntu 22.04 lub nowsze) zainstaluj Dockera: `curl -s https://raw.githubusercontent.com/unkn0w/noobs/main/scripts/chce_dockera.sh | bash`.
+5. Na serwerze utwórz katalog i wgraj konfigurację (w `.env` ustaw `TUNNEL_TOKEN`, `ADMIN_PASSWORD`, `ADMIN_SECRET`, `RESEND_API_KEY`):
 
 ```bash
-docker compose -f compose.prod.yaml up -d --build
+ssh -p PORT root@srvXX.mikr.us "mkdir -p klimax"
+scp -P PORT compose.prod.yaml .env root@srvXX.mikr.us:klimax/
 ```
 
-Caddy sam pobiera i odnawia certyfikat HTTPS, przekierowuje `www` na domenę główną i przekazuje ruch do aplikacji. Aplikacja nie jest wystawiona bezpośrednio na zewnątrz.
+### Każde wdrożenie (Git Bash)
+
+```bash
+docker build -t klimax . && docker save klimax | gzip | ssh -p PORT root@srvXX.mikr.us "gunzip | docker load && cd klimax && docker compose -f compose.prod.yaml up -d --no-build && docker image prune -f"
+```
+
+`PORT` i `srvXX` są w mailu powitalnym od Mikrusa.

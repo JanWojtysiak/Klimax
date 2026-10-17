@@ -1,6 +1,7 @@
 services:
   klimax:
     build: .
+    image: klimax
     container_name: klimax
     restart: unless-stopped
     expose:
@@ -11,24 +12,15 @@ services:
     volumes:
       - uploads:/app/uploads
 
-  caddy:
-    image: caddy:2.10-alpine
-    container_name: klimax-caddy
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: klimax-cloudflared
     restart: unless-stopped
     depends_on:
       - klimax
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
+    command: tunnel --no-autoupdate run
     environment:
-      DOMAIN: ${DOMAIN:?Ustaw DOMAIN w .env}
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN:?Ustaw TUNNEL_TOKEN w .env}
 
 volumes:
   uploads:
-  caddy_data:
-  caddy_config:
