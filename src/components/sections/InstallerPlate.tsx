@@ -20,12 +20,12 @@ export function InstallerPlate({ texts }: { texts: Texts }) {
               {texts.installerText}
             </p>
 
-            <div className="order-last mt-12 lg:order-none lg:mt-auto lg:pt-12">
+            <div className="order-last mt-12 lg:order-none lg:mt-12">
               <BrandList />
             </div>
           </div>
 
-          <figure className="relative mt-10 flex w-full max-w-[26rem] flex-col items-start lg:col-start-2 lg:w-auto lg:max-w-none lg:row-start-2 lg:mt-10 lg:self-center">
+          <figure className="relative mt-10 flex w-full max-w-[26rem] flex-col items-start lg:col-start-2 lg:w-auto lg:max-w-none lg:row-start-2 lg:-mt-40 lg:self-end">
             <div
               aria-hidden
               className="pointer-events-none absolute left-0 top-1/2 h-3/4 w-[62%] -translate-y-1/2 rounded-full bg-stock/15 blur-3xl lg:w-[min(34vw,28rem)]"

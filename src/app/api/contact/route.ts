@@ -12,25 +12,25 @@ const schema = z.object(
       .string("Podaj imię i nazwisko.")
       .trim()
       .min(1, "Podaj imię i nazwisko.")
-      .max(120, "Imię i nazwisko jest za długie — maksymalnie 120 znaków."),
+      .max(120, "Imię i nazwisko jest za długie, maksymalnie 120 znaków."),
     phone: z
       .string("Podaj numer telefonu.")
       .trim()
       .refine(
         isPolishPhone,
-        "Numer telefonu jest w złym formacie — podaj polski numer, np. 601 573 887.",
+        "Numer telefonu jest w złym formacie, podaj polski numer, np. 601 573 887.",
       ),
     city: z
       .string("Podaj miejscowość.")
       .trim()
       .min(1, "Podaj miejscowość.")
-      .max(120, "Nazwa miejscowości jest za długa — maksymalnie 120 znaków."),
+      .max(120, "Nazwa miejscowości jest za długa, maksymalnie 120 znaków."),
     service: z.string().trim().max(120).default(""),
     message: z
       .string("Napisz wiadomość.")
       .trim()
-      .min(30, "Wiadomość jest za krótka — opisz sprawę w co najmniej 30 znakach.")
-      .max(4000, "Wiadomość jest za długa — maksymalnie 4000 znaków."),
+      .min(30, "Wiadomość jest za krótka, opisz sprawę w co najmniej 30 znakach.")
+      .max(4000, "Wiadomość jest za długa, maksymalnie 4000 znaków."),
     website: z.string().max(100).default(""),
   },
   "Nieprawidłowe dane.",
@@ -88,7 +88,7 @@ export async function POST(request: Request) {
     body: JSON.stringify({
       from: process.env.CONTACT_FROM ?? "Formularz <onboarding@resend.dev>",
       to: process.env.CONTACT_TO ?? "biuro@klimax.co.pl",
-      subject: `Zapytanie: ${service || "kontakt"} — ${city}`,
+      subject: `Zapytanie: ${service || "kontakt"}, ${city}`,
       text,
     }),
   });

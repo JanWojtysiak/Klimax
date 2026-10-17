@@ -5,13 +5,13 @@ export const site = {
   phone: "+48 601 573 887",
   phoneHref: "tel:+48601573887",
   email: "biuro@klimax.co.pl",
-  street: "ul. Pisata 32/5",
+  street: "ul. Piasta 32/5",
   postalCode: "58-160",
   city: "Świebodzice",
   region: "dolnośląskie",
   country: "PL",
   radiusKm: 30,
-  title: "Klimax — pompy ciepła, klimatyzacja i instalacje | Świebodzice",
+  title: "Klimax, pompy ciepła, klimatyzacja i instalacje | Świebodzice",
   description:
     "Pompy ciepła, klimatyzacja, rekuperacja, elektryka i wod-kan. 25 lat doświadczenia, SEP i F-Gaz. Świebodzice, Świdnica, Wałbrzych i okolice do 30 km.",
   keywords: [

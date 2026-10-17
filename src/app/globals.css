@@ -333,3 +333,69 @@ figure:hover .mascot-point {
     animation: none;
   }
 }
+
+.services-note::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--color-vermilion);
+  transform-origin: top;
+  animation: services-note-line linear both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 45%;
+}
+
+@keyframes services-note-line {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+.services-note {
+  animation: services-note-in linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+}
+
+@keyframes services-note-in {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+}
+
+.services-note-bulb {
+  animation: services-note-glow 2.8s ease-in-out infinite;
+}
+
+.services-note-rays {
+  animation: services-note-rays 2.8s ease-in-out infinite;
+}
+
+@keyframes services-note-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    filter: drop-shadow(0 0 5px var(--color-ochre));
+  }
+}
+
+@keyframes services-note-rays {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-note,
+  .services-note::before,
+  .services-note-bulb,
+  .services-note-rays {
+    animation: none;
+  }
+}

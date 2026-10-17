@@ -7,7 +7,7 @@ import { PhotoList } from "./PhotoList";
 import { SubmitButton } from "./SubmitButton";
 
 export const metadata: Metadata = {
-  title: "Panel — Klimax",
+  title: "Panel, Klimax",
   robots: { index: false, follow: false },
 };
 

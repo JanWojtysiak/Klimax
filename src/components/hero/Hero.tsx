@@ -59,10 +59,7 @@ export function Hero({ texts }: { texts: Texts }) {
 
   const plate = plates[index];
   const title = texts[`plate${index}Title`];
-  const note =
-    summer && plate.summerNote
-      ? texts[`plate${index}SummerNote`]
-      : texts[`plate${index}Note`];
+  const note = summer && plate.summerNote ? plate.summerNote : plate.note;
   const anim = dir ? "plate-wipe" : "";
 
   return (
@@ -157,8 +154,7 @@ export function Hero({ texts }: { texts: Texts }) {
                 >
                   {title}
                   <span className="sr-only">
-                    {" "}
-                    — {site.name} {site.owner}, {site.city} i okolice
+                    , {site.name} {site.owner}, {site.city} i okolice
                   </span>
                 </h1>
               </div>

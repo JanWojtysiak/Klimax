@@ -71,7 +71,7 @@ export function ContactForm() {
         </div>
 
         <p className="mt-8 text-lg leading-relaxed text-spruce/85">
-          Zapytanie do nas dotarło. Odezwiemy się telefonicznie — zwykle jeszcze
+          Zapytanie do nas dotarło. Odezwiemy się telefonicznie, zwykle jeszcze
           tego samego dnia.
         </p>
         <p className="mt-4 text-base leading-relaxed text-spruce/75">

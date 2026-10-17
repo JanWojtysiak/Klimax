@@ -5,12 +5,9 @@ import { uploadDir } from "./photos";
 
 export const defaultTexts: Record<string, { label: string; value: string }> = {
   ...Object.fromEntries(
-    plates.flatMap((plate, index) => [
-      [`plate${index}Title`, { label: `Start — usługa ${index + 1}: tytuł`, value: plate.title }],
-      [`plate${index}Note`, { label: `Start — usługa ${index + 1}: opis`, value: plate.note }],
-      ...(plate.summerNote
-        ? [[`plate${index}SummerNote`, { label: `Start — usługa ${index + 1}: opis latem`, value: plate.summerNote }]]
-        : []),
+    plates.map((plate, index) => [
+      `plate${index}Title`,
+      { label: `Start, usługa ${index + 1}: tytuł`, value: plate.title },
     ]),
   ),
   installerTitle: { label: "Certyfikowany instalator: tytuł", value: "Certyfikowany\ninstalator" },
@@ -29,7 +26,7 @@ export const defaultTexts: Record<string, { label: string; value: string }> = {
   servicesText: {
     label: "Co robimy: opis",
     value:
-      "Pompa ciepła to dziś nasza główna robota, ale dom to jedna instalacja — elektryka, woda i wentylacja muszą do siebie pasować. Robimy je pod jednym adresem.",
+      "Pompa ciepła to dziś nasza główna robota, ale dom to jedna instalacja, elektryka, woda i wentylacja muszą do siebie pasować. Robimy je pod jednym adresem.",
   },
   galleryTitle: { label: "Galeria: tytuł", value: "Z realizacji" },
   galleryText: {
@@ -40,19 +37,55 @@ export const defaultTexts: Record<string, { label: string; value: string }> = {
   experienceText: {
     label: "Doświadczenie: opis",
     value:
-      "Ćwierć wieku przy różnorodnych instalacjach w firmach i u klientów prywatnych. Przez ten czas zmieniły się kotły, przepisy i urządzenia — a jakość została ta sama.",
+      "Ćwierć wieku przy różnorodnych instalacjach w firmach i u klientów prywatnych. Przez ten czas zmieniły się kotły, przepisy i urządzenia, a jakość została ta sama.",
   },
   areaTitle: { label: "Dojazd: tytuł", value: "Jak daleko\ndojeżdżamy" },
   areaText: {
     label: "Dojazd: opis",
     value:
-      "Pracujemy w promieniu około 30 kilometrów od Świebodzic. Pasma są orientacyjne — jeśli Twojej miejscowości nie ma na liście, zadzwoń, najczęściej i tak dojedziemy.",
+      "Pracujemy w promieniu około 30 kilometrów od Świebodzic. Pasma są orientacyjne, jeśli Twojej miejscowości nie ma na liście, zadzwoń, najczęściej i tak dojedziemy.",
   },
   contactTitle: { label: "Kontakt: tytuł", value: "Napisz albo\nzadzwoń" },
   contactText: {
     label: "Kontakt: opis",
     value:
-      "Najszybciej załatwimy sprawę przez telefon — odbieramy osobiście i pomożemy ci z każdym pytaniem.",
+      "Najszybciej załatwimy sprawę przez telefon, odbieramy osobiście i pomożemy ci z każdym pytaniem.",
+  },
+  faqText: {
+    label: "Częste pytania: opis",
+    value: "Odpowiedzi na pytania, które słyszymy od klientów najczęściej.",
+  },
+  faq0Question: { label: "Częste pytania 1: pytanie", value: "Jaką pompę ciepła polecacie?" },
+  faq0Answer: {
+    label: "Częste pytania 1: odpowiedź (każda linia to punkt listy)",
+    value: "Najczęściej typu split, a jeśli split nie wchodzi w grę, monoblok. Montujemy Rotenso, Midea, Kaisai, Panasonic, Atlantic i Vaillant. Na te marki mamy autoryzację montażową, bo się sprawdzają.",
+  },
+  faq1Question: { label: "Częste pytania 2: pytanie", value: "Ile prądu zużywa pompa ciepła?" },
+  faq1Answer: {
+    label: "Częste pytania 2: odpowiedź (każda linia to punkt listy)",
+    value: "To zależy głównie od wielkości i ocieplenia domu, mocy pompy oraz temperatury, jaką chcesz utrzymać. Szacunkowe zużycie dla Twojego domu podamy podczas rozmowy.",
+  },
+  faq2Question: { label: "Częste pytania 3: pytanie", value: "Ile trwa montaż pompy ciepła?" },
+  faq2Answer: {
+    label: "Częste pytania 3: odpowiedź (każda linia to punkt listy)",
+    value: "Zwykle od 3 do 4 dni roboczych.",
+  },
+  faq3Question: { label: "Częste pytania 4: pytanie", value: "Od czego zależy cena pompy ciepła?" },
+  faq3Answer: {
+    label: "Częste pytania 4: odpowiedź (każda linia to punkt listy)",
+    value:
+      "Producent i moc pompy\nTyp: split, monoblok albo „lodówka”, czyli zbiornik ciepłej wody w jednostce wewnętrznej lub osobno\nMateriały użyte w instalacji hydraulicznej\nPostument pod jednostkę zewnętrzną",
+  },
+  faq4Question: { label: "Częste pytania 5: pytanie", value: "Czy pomagacie z dotacjami?" },
+  faq4Answer: {
+    label: "Częste pytania 5: odpowiedź (każda linia to punkt listy)",
+    value: "Nie, nie zajmujemy się wnioskami o dotacje.",
+  },
+  faq5Question: { label: "Częste pytania 6: pytanie", value: "Na co uważać przy pompie ciepła?" },
+  faq5Answer: {
+    label: "Częste pytania 6: odpowiedź (każda linia to punkt listy)",
+    value:
+      "Najwięcej problemów z pompami ciepła nie bierze się z samego urządzenia, tylko z instalacji hydraulicznej.",
   },
 };
 
