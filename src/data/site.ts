@@ -1,7 +1,7 @@
 export const site = {
   name: "Klimax",
   owner: "Robert Wojtysiak",
-  url: "https://klimax.co.pl",
+  url: "https://www.klimax.co.pl",
   phone: "+48 601 573 887",
   phoneHref: "tel:+48601573887",
   email: "biuro@klimax.co.pl",

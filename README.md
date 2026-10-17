@@ -62,7 +62,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Produkcja (Mikrus + Cloudflare Tunnel)
 
-Mikrus nie ma własnego publicznego IPv4, więc ruch idzie przez tunel Cloudflare: kontener `cloudflared` sam łączy się z Cloudflare, HTTPS i przekierowanie z `www` obsługuje Cloudflare i Next.js. Na serwerze nie trzeba otwierać żadnych portów.
+Mikrus nie ma własnego publicznego IPv4, więc ruch idzie przez tunel Cloudflare: kontener `cloudflared` sam łączy się z Cloudflare, HTTPS obsługuje Cloudflare, a przekierowanie z `klimax.co.pl` na `www.klimax.co.pl` Next.js. Na serwerze nie trzeba otwierać żadnych portów.
 
 Obraz buduje GitHub Actions (`.github/workflows/deploy.yml`), bo `next build` nie mieści się w 1 GB RAM. Każdy push na `main` buduje stronę i wysyła ją na serwer.
 

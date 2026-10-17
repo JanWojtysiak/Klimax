@@ -6,8 +6,8 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/:path*",
-        has: [{ type: "host", value: "www.klimax.co.pl" }],
-        destination: "https://klimax.co.pl/:path*",
+        has: [{ type: "host", value: "klimax.co.pl" }],
+        destination: "https://www.klimax.co.pl/:path*",
         permanent: true,
       },
     ];
