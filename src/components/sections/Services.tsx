@@ -1,38 +1,38 @@
+import type { Texts } from "@/lib/texts";
 import { services } from "@/data/services";
 import { ServiceIcon } from "./ServiceIcon";
 
-export function Services() {
+export function Services({ texts }: { texts: Texts }) {
   return (
     <section id="services" className="relative bg-stock text-spruce grain">
       <div className="relative mx-auto max-w-6xl px-5 pt-20 sm:px-10 sm:pt-28">
-        <p className="caption text-xs text-spruce/70">Arkusz 03</p>
-        <h2 className="display mt-4 text-[clamp(2.6rem,9vw,6.5rem)]">
-          Co robimy
+        <h2 className="display whitespace-pre-line text-[clamp(2.6rem,9vw,6.5rem)]">
+          {texts.servicesTitle}
         </h2>
       </div>
-      <ul className="relative mt-12 border-t-2 border-spruce/25">
-        {services.map(({ name, note, icon }) => (
-          <li
-            key={name}
-            className="group border-b-2 border-spruce/25 transition-colors duration-200 hover:bg-spruce hover:text-stock"
-          >
-            <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-7 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8 sm:px-10">
-              <h3 className="display flex items-center gap-4 text-[clamp(1.9rem,5.5vw,3.4rem)]">
+      <div className="relative mx-auto mt-12 max-w-6xl px-5 sm:px-10">
+        <ul className="grid border-t-2 border-spruce/25 md:grid-cols-2">
+          {services.map(({ name, icon }, index) => (
+            <li
+              key={name}
+              className={`group flex items-center gap-5 border-b-2 border-spruce/25 py-7 transition-colors duration-200 hover:bg-spruce hover:text-stock sm:py-9 md:px-6 ${
+                index % 2 === 0 ? "md:border-r-2" : ""
+              }`}
+            >
+              <span className="caption shrink-0 text-[0.65rem] text-spruce/50 group-hover:text-stock/60 sm:text-xs">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="display flex items-center gap-4 text-[clamp(1.4rem,5vw,2.6rem)] md:text-[clamp(1.25rem,2.6vw,2.4rem)]">
                 <ServiceIcon name={icon} />
                 {name}
               </h3>
-              <p className="caption shrink-0 text-xs opacity-80 sm:text-sm">
-                {note}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-10">
         <p className="max-w-2xl text-lg leading-relaxed text-spruce/80">
-          Pompa ciepła to dziś nasza główna robota, ale dom to jedna instalacja
-          — elektryka, woda i wentylacja muszą do siebie pasować. Robimy je pod
-          jednym adresem.
+          {texts.servicesText}
         </p>
       </div>
     </section>

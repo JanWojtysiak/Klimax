@@ -1,10 +1,16 @@
 services:
   klimax:
-    build: .
-    container_name: klimax
-    restart: unless-stopped
+    build:
+      context: .
+      target: deps
+    container_name: klimax-dev
+    command: npx next dev --webpack
+    environment:
+      WATCHPACK_POLLING: "true"
+      HOSTNAME: 0.0.0.0
     ports:
       - "${PORT:-3000}:3000"
-    env_file:
-      - path: .env
-        required: false
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next

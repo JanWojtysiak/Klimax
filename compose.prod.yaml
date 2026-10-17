@@ -1,0 +1,34 @@
+services:
+  klimax:
+    build: .
+    container_name: klimax
+    restart: unless-stopped
+    expose:
+      - "3000"
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      - uploads:/app/uploads
+
+  caddy:
+    image: caddy:2.10-alpine
+    container_name: klimax-caddy
+    restart: unless-stopped
+    depends_on:
+      - klimax
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      DOMAIN: ${DOMAIN:?Ustaw DOMAIN w .env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  uploads:
+  caddy_data:
+  caddy_config:

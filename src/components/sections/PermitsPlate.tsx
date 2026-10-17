@@ -1,19 +1,18 @@
+import type { Texts } from "@/lib/texts";
 import { PlateRail, railGrid } from "@/components/ui/PlateRail";
 import { permits } from "@/data/permits";
 
-export function PermitsPlate() {
+export function PermitsPlate({ texts }: { texts: Texts }) {
   return (
     <div className="relative bg-slate grain">
       <div className={railGrid}>
         <PlateRail letter="B" closing />
         <div className="py-20 sm:py-28">
-          <h2 className="display text-stock text-[clamp(2.2rem,9vw,6.5rem)] min-[340px]:text-[clamp(2.6rem,9vw,6.5rem)]">
-            Uprawnienia <br />
-            zawodowe
+          <h2 className="display whitespace-pre-line text-stock text-[clamp(2.2rem,9vw,6.5rem)] min-[340px]:text-[clamp(2.6rem,9vw,6.5rem)]">
+            {texts.permitsTitle}
           </h2>
           <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-stock/85">
-            Instalację elektryczną i czynnik chłodniczy obsługuje u nas ktoś,
-            kto ma do tego uprawnienia wymagane prawem.
+            {texts.permitsText}
           </p>
 
           <div className="rule-diamond mt-12 text-stock/35">

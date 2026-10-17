@@ -3,13 +3,14 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/data/site";
+import type { Texts } from "@/lib/texts";
 import { HeroScene } from "./HeroScene";
 import { plates } from "./plates";
 
 const titleClass =
   "display flex min-h-[1.72em] items-end whitespace-pre-line text-[clamp(3.4rem,15vw,11rem)] [@media(max-height:800px)]:text-[clamp(3.4rem,15vw,8.75rem)]";
 
-export function Hero() {
+export function Hero({ texts }: { texts: Texts }) {
   const sectionRef = useRef<HTMLElement>(null);
   const [summer, setSummer] = useState(false);
   const [index, setIndex] = useState(0);
@@ -57,7 +58,11 @@ export function Hero() {
   }, []);
 
   const plate = plates[index];
-  const note = summer && plate.summerNote ? plate.summerNote : plate.note;
+  const title = texts[`plate${index}Title`];
+  const note =
+    summer && plate.summerNote
+      ? texts[`plate${index}SummerNote`]
+      : texts[`plate${index}Note`];
   const anim = dir ? "plate-wipe" : "";
 
   return (
@@ -102,9 +107,6 @@ export function Hero() {
                 {site.name} · {site.owner}
               </span>
             </div>
-            <span className="caption shrink-0 pt-1 text-[0.68rem] sm:text-xs">
-              Arkusz 01
-            </span>
           </div>
 
           <div className="pointer-events-none absolute z-10 hidden bg-spruce px-3 py-3 text-stock [@media(max-height:640px)]:hidden sm:right-8 sm:top-16 sm:block sm:w-64">
@@ -137,7 +139,7 @@ export function Hero() {
                     aria-hidden="true"
                     className={`${titleClass} plate-ghost pointer-events-none absolute inset-0 text-vermilion`}
                   >
-                    {plate.title}
+                    {title}
                   </span>
                 ) : null}
                 <h1
@@ -153,7 +155,7 @@ export function Hero() {
                       : undefined
                   }
                 >
-                  {plate.title}
+                  {title}
                   <span className="sr-only">
                     {" "}
                     — {site.name} {site.owner}, {site.city} i okolice

@@ -6,8 +6,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Zasady pracy z gitem
 
-- Pracuj i commituj bezpośrednio na branchu `main`. Nie pushuj.
-- Commituj po wykonaniu małych funkcjonalności, nawet jeśli wykonujesz duże zadanie. Nadawaj odpowiednie nazwy, stosuj Conventional Commits: `feat:`, `fix:`, `docs:`, `chore:`, `refactor:`, `test:`.
+- Pracuj bezpośrednio na branchu `main`. Nie commituj bez wyraźnej zgody użytkownika. Nie pushuj.
+- Gdy użytkownik zgodzi się na commit, nadawaj odpowiednie nazwy, stosuj Conventional Commits: `feat:`, `fix:`, `docs:`, `chore:`, `refactor:`, `test:`.
 
 # Praca z projektem
 

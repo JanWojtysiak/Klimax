@@ -1,19 +1,16 @@
+import type { Texts } from "@/lib/texts";
 import { distanceBands } from "@/data/service-area";
 import { RangeRing } from "./RangeRing";
 
-export function ServiceArea() {
+export function ServiceArea({ texts }: { texts: Texts }) {
   return (
     <section id="service-area" className="relative bg-stock text-spruce grain">
       <div className="relative mx-auto max-w-6xl px-5 pt-20 sm:px-10 sm:pt-28">
-        <p className="caption text-xs text-spruce/70">Arkusz 05</p>
-        <h2 className="display mt-4 text-[clamp(2.6rem,9vw,6.5rem)]">
-          Jak daleko <br />
-          dojeżdżamy
+        <h2 className="display whitespace-pre-line text-[clamp(2.6rem,9vw,6.5rem)]">
+          {texts.areaTitle}
         </h2>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-spruce/80">
-          Pracujemy w promieniu około 30 kilometrów od Świebodzic. Pasma są
-          orientacyjne — jeśli Twojej miejscowości nie ma na liście, zadzwoń,
-          najczęściej i tak dojedziemy.
+          {texts.areaText}
         </p>
       </div>
 
