@@ -8,30 +8,30 @@ const isPolishPhone = (value: string) => {
 
 const schema = z.object(
   {
-    imie: z
+    name: z
       .string("Podaj imię i nazwisko.")
       .trim()
       .min(1, "Podaj imię i nazwisko.")
       .max(120, "Imię i nazwisko jest za długie — maksymalnie 120 znaków."),
-    telefon: z
+    phone: z
       .string("Podaj numer telefonu.")
       .trim()
       .refine(
         isPolishPhone,
         "Numer telefonu jest w złym formacie — podaj polski numer, np. 601 573 887.",
       ),
-    miejscowosc: z
+    city: z
       .string("Podaj miejscowość.")
       .trim()
       .min(1, "Podaj miejscowość.")
       .max(120, "Nazwa miejscowości jest za długa — maksymalnie 120 znaków."),
-    zakres: z.string().trim().max(120).default(""),
-    wiadomosc: z
+    service: z.string().trim().max(120).default(""),
+    message: z
       .string("Napisz wiadomość.")
       .trim()
       .min(30, "Wiadomość jest za krótka — opisz sprawę w co najmniej 30 znakach.")
       .max(4000, "Wiadomość jest za długa — maksymalnie 4000 znaków."),
-    firma: z.string().max(100).default(""),
+    website: z.string().max(100).default(""),
   },
   "Nieprawidłowe dane.",
 );
@@ -46,16 +46,16 @@ export async function POST(request: Request) {
     );
   }
 
-  const { imie, telefon, miejscowosc, zakres, wiadomosc, firma } = parsed.data;
+  const { name, phone, city, service, message, website } = parsed.data;
 
-  if (firma) {
+  if (website) {
     return Response.json({ ok: true });
   }
 
-  const text = `Imię i nazwisko: ${imie}\nTelefon: ${telefon}\nMiejscowość: ${miejscowosc}\nZakres: ${zakres}\n\n${wiadomosc}`;
+  const text = `Imię i nazwisko: ${name}\nTelefon: ${phone}\nMiejscowość: ${city}\nZakres: ${service}\n\n${message}`;
 
   if (!process.env.RESEND_API_KEY) {
-    console.log(`[kontakt]\n${text}`);
+    console.log(`[contact]\n${text}`);
     return Response.json({ ok: true });
   }
 
@@ -66,9 +66,9 @@ export async function POST(request: Request) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: process.env.KONTAKT_FROM ?? "Formularz <onboarding@resend.dev>",
-      to: process.env.KONTAKT_TO ?? "biuro@klimax.co.pl",
-      subject: `Zapytanie: ${zakres || "kontakt"} — ${miejscowosc}`,
+      from: process.env.CONTACT_FROM ?? "Formularz <onboarding@resend.dev>",
+      to: process.env.CONTACT_TO ?? "biuro@klimax.co.pl",
+      subject: `Zapytanie: ${service || "kontakt"} — ${city}`,
       text,
     }),
   });
