@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { connection } from "next/server";
 import { getPhotos } from "@/lib/photos";
 import { defaultTexts, getTexts } from "@/lib/texts";
 import { isAdmin, login, logout, updateTexts, upload } from "./actions";
@@ -16,6 +17,7 @@ const field =
 const button = "ink-btn bg-vermilion px-7 py-3 text-xl text-stock disabled:opacity-60";
 
 export default async function AdminPage() {
+  await connection();
   if (!process.env.ADMIN_PASSWORD || !process.env.ADMIN_SECRET) {
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-5 py-20">
