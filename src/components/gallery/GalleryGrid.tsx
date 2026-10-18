@@ -121,8 +121,8 @@ export function GalleryGrid({ photos }: { photos: Photo[] }) {
                 className="object-contain"
               />
             </div>
-            <div className="flex items-center justify-between gap-4 pt-3">
-              <p className="caption min-w-0 truncate text-xs sm:text-sm">
+            <div className="flex flex-col gap-3 pt-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              <p className="caption min-w-0 text-xs leading-snug sm:text-sm">
                 <span className="text-slate">Nr {number(active)}</span>{" "}
                 {photo.alt}
               </p>
