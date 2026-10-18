@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { connection } from "next/server";
 import { ContactSection } from "@/components/contact/ContactSection";
 import { Footer } from "@/components/layout/Footer";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { site } from "@/data/site";
 import { getTexts } from "@/lib/texts";
 
@@ -54,36 +53,9 @@ export default async function FaqPage() {
       />
 
       <main className="flex-1">
-        <header className="relative bg-spruce grain">
-          <div className="relative mx-auto max-w-6xl px-5 py-6 sm:px-10">
-            <Link href="/" className="inline-flex flex-col items-center">
-              <Image
-                src="/brand/logo-mark-winter.png"
-                alt=""
-                width={1039}
-                height={341}
-                sizes="(min-width: 640px) 11rem, 7rem"
-                className="h-auto w-28 sm:w-44"
-              />
-              <span className="wordmark text-center text-[0.62rem] text-stock sm:text-sm">
-                {site.name} · {site.owner}
-              </span>
-            </Link>
-
-            <p className="caption mt-14 text-xs text-stock/70 sm:mt-20">
-              <Link href="/" className="underline underline-offset-4 hover:text-stock">
-                Strona główna
-              </Link>{" "}
-              › Często zadawane pytania
-            </p>
-            <h1 className="display mt-4 text-stock text-[clamp(2.6rem,9vw,6.5rem)]">
-              Często zadawane pytania
-            </h1>
-            <p className="mt-6 max-w-2xl pb-14 text-lg leading-relaxed text-stock/85 sm:pb-20">
-              {texts.faqText}
-            </p>
-          </div>
-        </header>
+        <PageHeader title="Często zadawane pytania">
+          <p>{texts.faqText}</p>
+        </PageHeader>
 
         <section className="relative bg-stock text-spruce grain">
           <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-10 sm:py-28">

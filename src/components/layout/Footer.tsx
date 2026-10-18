@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/data/site";
 
 export function Footer() {
@@ -18,7 +19,11 @@ export function Footer() {
             className="underline underline-offset-4"
           >
             {site.email}
-          </a>
+          </a>{" "}
+          ·{" "}
+          <Link href="/polityka-prywatnosci" className="underline underline-offset-4">
+            Polityka prywatności
+          </Link>
         </p>
       </div>
     </footer>

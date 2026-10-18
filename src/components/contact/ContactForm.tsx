@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
@@ -205,6 +206,15 @@ export function ContactForm() {
         {status === "error"
           ? error
           : "Zostaw numer, oddzwonimy. Zwykle odzywamy się tego samego dnia."}
+      </p>
+
+      <p className="text-xs leading-relaxed text-stock/60">
+        Dane z formularza trafiają do {site.name} {site.owner} i służą tylko do odpowiedzi na zapytanie.
+        Szczegóły w{" "}
+        <Link href="/polityka-prywatnosci" className="underline underline-offset-4 hover:text-stock">
+          polityce prywatności
+        </Link>
+        .
       </p>
     </form>
   );
