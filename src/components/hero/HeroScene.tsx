@@ -30,7 +30,7 @@ const sceneStyles = `
   .scene { transform: translate(340px, -88px) }
   @media (min-width: 640px) { .scene { transform: translate(190px, -60px) } }
   @media (min-width: 1024px) { .scene { transform: none } }
-  @media (max-width: 1023px) { .cloud-left { transform: translateX(400px) } }
+  @media (max-width: 1023px), (max-height: 920px) { .cloud-left { transform: translateX(400px) } }
 `;
 
 type HeroSceneProps = {
