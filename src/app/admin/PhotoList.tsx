@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useTransition } from "react";
 import type { Photo } from "@/lib/photos";
-import { remove, reorder } from "./actions";
+import { remove, rename, reorder } from "./actions";
 
 const arrow = "ink-btn h-9 w-9 bg-spruce text-lg text-stock disabled:opacity-30";
 
@@ -19,6 +19,14 @@ export function PhotoList({ photos: initial }: { photos: Photo[] }) {
     next.splice(to, 0, next.splice(from, 1)[0]);
     setPhotos(next);
     startTransition(() => reorder(next.map((photo) => photo.file)));
+  };
+
+  const edit = (file: string, alt: string) => {
+    const text = alt.trim();
+    const photo = photos.find((item) => item.file === file);
+    if (!text || !photo || photo.alt === text) return;
+    setPhotos(photos.map((item) => (item.file === file ? { ...item, alt: text } : item)));
+    startTransition(() => rename(file, text));
   };
 
   const drop = (file: string) => {
@@ -69,7 +77,22 @@ export function PhotoList({ photos: initial }: { photos: Photo[] }) {
                 Nr {String(index + 1).padStart(2, "0")}
               </span>
             </div>
-            <p className="pt-2 text-sm leading-snug">{photo.alt}</p>
+            <textarea
+              defaultValue={photo.alt}
+              onBlur={(event) => edit(photo.file, event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  event.preventDefault();
+                  event.currentTarget.blur();
+                }
+              }}
+              draggable={false}
+              onDragStart={(event) => event.stopPropagation()}
+              aria-label="Opis zdjęcia"
+              maxLength={200}
+              rows={2}
+              className="mt-2 w-full resize-none border-2 border-spruce/20 bg-transparent px-2 py-1 text-sm leading-snug focus:border-spruce focus:outline-none"
+            />
             <div className="flex items-center gap-2 pt-2">
               <button
                 type="button"

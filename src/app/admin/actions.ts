@@ -102,6 +102,16 @@ export async function reorder(files: string[]) {
   revalidatePath("/admin");
 }
 
+export async function rename(file: string, alt: string) {
+  if (!(await isAdmin())) return;
+  const text = String(alt).trim().slice(0, 200);
+  if (!text) return;
+  const photos = await getPhotos();
+  await savePhotos(photos.map((photo) => (photo.file === file ? { ...photo, alt: text } : photo)));
+  revalidatePath("/");
+  revalidatePath("/admin");
+}
+
 export async function updateTexts(formData: FormData) {
   if (!(await isAdmin())) return;
   const texts: Record<string, string> = {};
