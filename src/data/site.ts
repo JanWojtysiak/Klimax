@@ -12,6 +12,10 @@ export const site = {
   region: "dolnośląskie",
   country: "PL",
   radiusKm: 30,
+  googleProfile: "https://share.google/bMGKr4sxN0ktZ6v3E",
+  hours: "Poniedziałek–piątek, 8:00–17:00",
+  opens: "08:00",
+  closes: "17:00",
   title: "Pompy ciepła i klimatyzacja Świebodzice | Klimax Robert Wojtysiak",
   description:
     "Pompy ciepła, klimatyzacja, rekuperacja, elektryka i wod-kan. 25 lat doświadczenia, SEP i F-Gaz. Świebodzice, Świdnica, Wałbrzych i okolice do 30 km.",

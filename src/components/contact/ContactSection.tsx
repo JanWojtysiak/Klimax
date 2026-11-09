@@ -39,10 +39,20 @@ export function ContactSection({ texts, faqLink = true }: { texts: Texts; faqLin
                 <br />
                 {site.street}, {site.postalCode} {site.city}
               </address>
+              <p className="caption text-xs text-stock/70">Godziny pracy</p>
+              <p className="mt-2 mb-6 text-base text-stock/85">{site.hours}</p>
               <p className="caption text-xs text-stock/70">Obszar</p>
               <p className="mt-2 text-base text-stock/85">
                 {site.city} i okolice w promieniu około {site.radiusKm} km.
               </p>
+              <a
+                href={site.googleProfile}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-block text-base text-stock underline decoration-vermilion decoration-2 underline-offset-4 hover:text-vermilion"
+              >
+                Mapa i opinie w Google →
+              </a>
             </div>
 
             {faqLink ? (
