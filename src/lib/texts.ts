@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { plates } from "@/components/hero/plates";
+import { services } from "@/data/services";
 import { uploadDir } from "./photos";
 
 export const defaultTexts: Record<string, { label: string; value: string }> = {
@@ -28,6 +29,12 @@ export const defaultTexts: Record<string, { label: string; value: string }> = {
     value:
       "Pompa ciepła to dziś nasza główna robota, ale dom to jedna instalacja, elektryka, woda i wentylacja muszą do siebie pasować. Robimy je pod jednym adresem.",
   },
+  ...Object.fromEntries(
+    services.map((service, index) => [
+      `service${index}Text`,
+      { label: `Co robimy, ${service.name}: opis`, value: service.text },
+    ]),
+  ),
   galleryTitle: { label: "Galeria: tytuł", value: "Z realizacji" },
   galleryText: {
     label: "Galeria: opis",

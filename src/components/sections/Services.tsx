@@ -22,10 +22,15 @@ export function Services({ texts }: { texts: Texts }) {
               <span className="caption shrink-0 text-[0.65rem] text-spruce/50 group-hover:text-stock/60 sm:text-xs">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="display flex items-center gap-4 text-[clamp(1.6rem,6vw,2.6rem)] md:text-[clamp(1.5rem,3vw,2.6rem)]">
-                <ServiceIcon name={icon} />
-                {name}
-              </h3>
+              <div>
+                <h3 className="display flex items-center gap-4 text-[clamp(1.6rem,6vw,2.6rem)] md:text-[clamp(1.5rem,3vw,2.6rem)]">
+                  <ServiceIcon name={icon} />
+                  {name}
+                </h3>
+                <p className="mt-3 max-w-[38ch] leading-relaxed text-spruce/75 group-hover:text-stock/80">
+                  {texts[`service${index}Text`]}
+                </p>
+              </div>
             </li>
           ))}
         </ul>
