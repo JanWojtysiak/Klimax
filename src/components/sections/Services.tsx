@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Texts } from "@/lib/texts";
 import { services } from "@/data/services";
 import { ServiceIcon } from "./ServiceIcon";
@@ -12,25 +13,31 @@ export function Services({ texts }: { texts: Texts }) {
       </div>
       <div className="relative mx-auto mt-12 max-w-6xl px-5 sm:px-10">
         <ul className="grid border-t-2 border-spruce/25 md:grid-cols-2">
-          {services.map(({ name, icon }, index) => (
+          {services.map(({ name, slug, icon }, index) => (
             <li
               key={name}
-              className={`group flex items-center gap-5 border-b-2 border-spruce/25 py-8 transition-colors duration-200 hover:bg-spruce hover:text-stock sm:py-10 md:px-6 ${
-                index % 2 === 0 ? "md:border-r-2" : ""
-              }`}
+              className={`border-b-2 border-spruce/25 ${index % 2 === 0 ? "md:border-r-2" : ""}`}
             >
-              <span className="caption shrink-0 text-[0.65rem] text-spruce/50 group-hover:text-stock/60 sm:text-xs">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <h3 className="display flex items-center gap-4 text-[clamp(1.6rem,6vw,2.6rem)] md:text-[clamp(1.5rem,3vw,2.6rem)]">
-                  <ServiceIcon name={icon} />
-                  {name}
-                </h3>
-                <p className="mt-3 max-w-[38ch] leading-relaxed text-spruce/75 group-hover:text-stock/80">
-                  {texts[`service${index}Text`]}
-                </p>
-              </div>
+              <Link
+                href={`/${slug}`}
+                className="group flex h-full items-center gap-5 py-8 transition-colors duration-200 hover:bg-spruce hover:text-stock sm:py-10 md:px-6"
+              >
+                <span className="caption shrink-0 text-[0.65rem] text-spruce/50 group-hover:text-stock/60 sm:text-xs">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="display flex items-center gap-4 text-[clamp(1.6rem,6vw,2.6rem)] md:text-[clamp(1.5rem,3vw,2.6rem)]">
+                    <ServiceIcon name={icon} />
+                    {name}
+                  </h3>
+                  <p className="mt-3 max-w-[38ch] leading-relaxed text-spruce/75 group-hover:text-stock/80">
+                    {texts[`service${index}Text`]}
+                  </p>
+                </div>
+                <span aria-hidden="true" className="display ml-auto text-2xl text-spruce/40 group-hover:text-stock">
+                  →
+                </span>
+              </Link>
             </li>
           ))}
         </ul>

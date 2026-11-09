@@ -1,27 +1,14 @@
-import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { site } from "@/data/site";
+import { pageMetadata } from "@/lib/metadata";
 
-const title = `Polityka prywatności | ${site.name} ${site.owner}`;
-const description = `Jak ${site.name} ${site.owner} korzysta z danych podanych w formularzu kontaktowym.`;
-
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/polityka-prywatnosci" },
-  openGraph: {
-    type: "website",
-    locale: "pl_PL",
-    siteName: `${site.name} ${site.owner}`,
-    url: "/polityka-prywatnosci",
-    title,
-    description,
-    images: "/opengraph-image",
-  },
-  twitter: { card: "summary_large_image", title, description, images: "/opengraph-image" },
-};
+export const metadata = pageMetadata(
+  "/polityka-prywatnosci",
+  `Polityka prywatności | ${site.name} ${site.owner}`,
+  `Jak ${site.name} ${site.owner} korzysta z danych podanych w formularzu kontaktowym.`,
+);
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
