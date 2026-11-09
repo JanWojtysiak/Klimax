@@ -31,19 +31,23 @@ function tile(index: number, count: number) {
   const visible = Math.min(count, MOBILE_LIMIT);
   const lg = span(index, count, 4, 5);
   const base = index < visible ? span(index, visible, 3, 3) : null;
-  return [
-    base
-      ? `${spanClasses.base.col[base.col]} ${spanClasses.base.row[base.row]}`
-      : "hidden lg:block",
-    spanClasses.lg.col[lg.col],
-    spanClasses.lg.row[lg.row],
-  ].join(" ");
+  return {
+    className: [
+      base
+        ? `${spanClasses.base.col[base.col]} ${spanClasses.base.row[base.row]}`
+        : "hidden lg:block",
+      spanClasses.lg.col[lg.col],
+      spanClasses.lg.row[lg.row],
+    ].join(" "),
+    sizes: `(min-width: 1024px) ${lg.col * 15}rem, ${(base?.col ?? 1) * 25}vw`,
+  };
 }
 
 export function GalleryGrid({ photos }: { photos: Photo[] }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [active, setActive] = useState(0);
   const photo = photos[active];
+  const tiles = photos.map((_, index) => tile(index, photos.length));
 
   const open = (index: number) => {
     setActive(index);
@@ -58,7 +62,7 @@ export function GalleryGrid({ photos }: { photos: Photo[] }) {
         {photos.map((item, index) => (
           <li
             key={item.file}
-            className={tile(index, photos.length)}
+            className={tiles[index].className}
           >
             <button
               type="button"
@@ -70,7 +74,7 @@ export function GalleryGrid({ photos }: { photos: Photo[] }) {
                   src={`/photos/${item.file}`}
                   alt={item.alt}
                   fill
-                  sizes="(min-width: 1024px) 34rem, 60vw"
+                  sizes={tiles[index].sizes}
                   className="object-cover"
                 />
                 <span className="proof-ink absolute inset-0">
@@ -78,7 +82,7 @@ export function GalleryGrid({ photos }: { photos: Photo[] }) {
                     src={`/photos/${item.file}`}
                     alt=""
                     fill
-                    sizes="(min-width: 1024px) 34rem, 60vw"
+                    sizes={tiles[index].sizes}
                     className="object-cover grayscale contrast-125"
                   />
                   <span className="absolute inset-0 bg-slate mix-blend-multiply" />

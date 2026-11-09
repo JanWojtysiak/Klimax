@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async headers() {
+    return [
+      {
+        source: "/brand/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=2592000" }],
+      },
+    ];
+  },
   experimental: {
     serverActions: { bodySizeLimit: "50mb" },
   },
