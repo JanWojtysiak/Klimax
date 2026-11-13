@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
+import { cityPages } from "@/data/city-pages";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: site.url, changeFrequency: "monthly", priority: 1 },
-    ...services.map(({ slug }) => ({
+    ...[...services.map(({ slug }) => slug), ...Object.keys(cityPages)].map((slug) => ({
       url: `${site.url}/${slug}`,
       changeFrequency: "monthly" as const,
       priority: 0.9,

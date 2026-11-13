@@ -11,7 +11,7 @@ export type ServicePage = {
 
 export const servicePages: Record<string, ServicePage> = {
   "pompy-ciepla": {
-    title: "Pompy ciepła Świebodzice, Świdnica, Wałbrzych | Klimax",
+    title: "Pompy ciepła Świebodzice – montaż i serwis | Klimax",
     description:
       "Dobór, montaż i serwis pomp ciepła typu split i monoblok. Certyfikowany instalator, uprawnienia F-Gaz i SEP, 25 lat doświadczenia. Świebodzice i okolice do 30 km.",
     lead: "Dobieramy, montujemy i serwisujemy pompy ciepła w Świebodzicach, Świdnicy, Wałbrzychu i okolicy do 30 km. Hydraulikę, elektrykę i układ chłodniczy robi jedna firma z uprawnieniami SEP i F-Gaz.",
@@ -52,7 +52,7 @@ export const servicePages: Record<string, ServicePage> = {
     ],
   },
   klimatyzacja: {
-    title: "Klimatyzacja Świebodzice, Świdnica, Wałbrzych | Klimax",
+    title: "Klimatyzacja Świebodzice – montaż i serwis | Klimax",
     description:
       "Montaż i przeglądy klimatyzacji z doborem mocy do metrażu. Certyfikat F-Gaz, 25 lat doświadczenia. Świebodzice, Świdnica, Wałbrzych i okolice do 30 km.",
     lead: "Montujemy klimatyzację i robimy jej przeglądy w Świebodzicach, Świdnicy, Wałbrzychu i okolicy do 30 km. Moc dobieramy do metrażu i nasłonecznienia.",
@@ -103,7 +103,7 @@ export const servicePages: Record<string, ServicePage> = {
     ],
   },
   rekuperacja: {
-    title: "Rekuperacja Świebodzice, Świdnica, Wałbrzych | Klimax",
+    title: "Rekuperacja Świebodzice – montaż | Klimax",
     description:
       "Montaż rekuperacji, czyli wentylacji mechanicznej z odzyskiem ciepła. Świeże, filtrowane powietrze i mniejsze straty ciepła. Świebodzice i okolice do 30 km.",
     lead: "Montujemy rekuperację, czyli wentylację mechaniczną z odzyskiem ciepła, w Świebodzicach, Świdnicy, Wałbrzychu i okolicy do 30 km.",
@@ -147,7 +147,7 @@ export const servicePages: Record<string, ServicePage> = {
     ],
   },
   "instalacje-elektryczne": {
-    title: "Instalacje elektryczne Świebodzice, Świdnica, Wałbrzych | Klimax",
+    title: "Instalacje elektryczne Świebodzice – montaż i modernizacja | Klimax",
     description:
       "Wykonanie i modernizacja instalacji elektrycznych. Uprawnienia SEP 1, 2 i 3, 25 lat doświadczenia. Świebodzice, Świdnica, Wałbrzych i okolice do 30 km.",
     lead: "Wykonujemy i modernizujemy instalacje elektryczne w Świebodzicach, Świdnicy, Wałbrzychu i okolicy do 30 km. Mamy uprawnienia SEP w grupach 1, 2 i 3.",
@@ -186,7 +186,7 @@ export const servicePages: Record<string, ServicePage> = {
     ],
   },
   "instalacje-wod-kan": {
-    title: "Instalacje wod-kan Świebodzice, Świdnica, Wałbrzych | Klimax",
+    title: "Instalacje wod-kan Świebodzice – montaż i wymiana | Klimax",
     description:
       "Instalacje wodne i kanalizacyjne: rozprowadzenie w nowych domach i wymiana starych rur. Świebodzice, Świdnica, Wałbrzych i okolice do 30 km.",
     lead: "Robimy instalacje wodne i kanalizacyjne: rozprowadzenie w nowych budynkach i wymiany starych rur. Świebodzice, Świdnica, Wałbrzych i okolica do 30 km.",
@@ -225,7 +225,7 @@ export const servicePages: Record<string, ServicePage> = {
     ],
   },
   "ogrzewanie-podlogowe": {
-    title: "Ogrzewanie podłogowe Świebodzice, Świdnica, Wałbrzych | Klimax",
+    title: "Ogrzewanie podłogowe Świebodzice – montaż | Klimax",
     description:
       "Wykonanie wodnego ogrzewania podłogowego: pętle i rozdzielacz. Dobrze współpracuje z pompą ciepła. Świebodzice, Świdnica, Wałbrzych i okolice do 30 km.",
     lead: "Wykonujemy wodne ogrzewanie podłogowe: układamy pętle i montujemy rozdzielacz. Świebodzice, Świdnica, Wałbrzych i okolica do 30 km.",

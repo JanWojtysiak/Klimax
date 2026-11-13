@@ -3,7 +3,15 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { site } from "@/data/site";
 
-export function PageHeader({ title, children }: { title: string; children?: ReactNode }) {
+export function PageHeader({
+  title,
+  heading = title,
+  children,
+}: {
+  title: string;
+  heading?: string;
+  children?: ReactNode;
+}) {
   return (
     <header className="relative bg-spruce grain">
       <div className="relative mx-auto max-w-6xl px-5 py-6 sm:px-10">
@@ -27,7 +35,7 @@ export function PageHeader({ title, children }: { title: string; children?: Reac
           </Link>{" "}
           › {title}
         </p>
-        <h1 className="display mt-4 text-stock text-[clamp(2.6rem,9vw,6.5rem)]">{title}</h1>
+        <h1 className="display mt-4 text-stock text-[clamp(2.6rem,9vw,6.5rem)]">{heading}</h1>
         <div className="mt-6 max-w-2xl pb-14 text-lg leading-relaxed text-stock/85 sm:pb-20">{children}</div>
       </div>
     </header>
