@@ -71,7 +71,7 @@ export function Hero({ texts }: { texts: Texts }) {
     >
       <div
         data-dir={dir}
-        className="relative h-[calc(100svh-60px)] overflow-hidden md:sticky md:top-0 md:h-screen"
+        className="relative h-[calc(100svh-60px)] overflow-hidden md:sticky md:top-[47px] md:h-[calc(100vh-47px)]"
       >
         <HeroScene
           summer={summer}
